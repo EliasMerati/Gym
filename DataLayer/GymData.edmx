@@ -1,0 +1,1514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Gym_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Gym">
+          <Key>
+            <PropertyRef Name="GymID" />
+          </Key>
+          <Property Name="GymID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GymName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GymManager" Type="nvarchar" MaxLength="100" />
+          <Property Name="GymAddress" Type="nvarchar(max)" />
+          <Property Name="GymTel" Type="nvarchar" MaxLength="20" />
+          <Property Name="GymWebsite" Type="nvarchar" MaxLength="50" />
+          <Property Name="GymInstagram" Type="nvarchar" MaxLength="50" />
+          <Property Name="GymTelegram" Type="nvarchar" MaxLength="50" />
+          <Property Name="GymWhatsup" Type="nvarchar" MaxLength="50" />
+          <Property Name="GymWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gymsmsusername" Type="nvarchar" MaxLength="100" />
+          <Property Name="GymsmsPass" Type="nvarchar" MaxLength="128" />
+          <Property Name="Gymsmssender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gymreciew" Type="nvarchar" MaxLength="50" />
+          <Property Name="GymWeekend" Type="nvarchar" MaxLength="50" />
+          <Property Name="GymLogo" Type="varbinary(max)" />
+          <Property Name="PicID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LoginUserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LoginPassword" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeopleID" Type="int" Nullable="false" />
+          <Property Name="LogDateTimeIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogDateTimeOut" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NewProgram">
+          <Key>
+            <PropertyRef Name="NewProgramID" />
+          </Key>
+          <Property Name="NewProgramID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewProgramDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PeopleID" Type="int" Nullable="false" />
+          <Property Name="NewProgramDesc" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NewProgramItem">
+          <Key>
+            <PropertyRef Name="NewProgramItemID" />
+          </Key>
+          <Property Name="NewProgramItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewProgramItemItems" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NewProgramItemcount" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NewProgramID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeopleID" Type="int" Nullable="false" />
+          <Property Name="PaymentPay" Type="int" Nullable="false" />
+          <Property Name="Datetime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PaymentSave" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="PeopleID" />
+          </Key>
+          <Property Name="PeopleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeopleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PeopleMobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="PeopleAddress" Type="nvarchar(max)" />
+          <Property Name="PeopleMellicode" Type="nvarchar" MaxLength="10" />
+          <Property Name="PeopleType" Type="nvarchar" MaxLength="20" />
+          <Property Name="PeopleType2" Type="nvarchar" MaxLength="20" />
+          <Property Name="PeopleDeptor" Type="int" Nullable="false" />
+          <Property Name="PeopleCreditor" Type="int" Nullable="false" />
+          <Property Name="PeopleLogo" Type="varbinary(max)" />
+          <Property Name="PicID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Perioddate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PeriodDesc" Type="nvarchar(max)" />
+          <Property Name="peopleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PeriodItems">
+          <Key>
+            <PropertyRef Name="PeriodItemID" />
+          </Key>
+          <Property Name="PeriodItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeriodID" Type="int" Nullable="false" />
+          <Property Name="PeriodItemProduct" Type="nvarchar" MaxLength="100" />
+          <Property Name="PeriodItemCount" Type="nvarchar" MaxLength="50" />
+          <Property Name="PeriodItemFee" Type="int" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="ProgramID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProgramName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProgramTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProgramBinary" Type="varbinary(max)" />
+          <Property Name="PeopleID" Type="int" />
+        </EntityType>
+        <EntityType Name="Shahrieh">
+          <Key>
+            <PropertyRef Name="ShahriehID" />
+          </Key>
+          <Property Name="ShahriehID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShahriehDateIN" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ShahriehOUT" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PeopleID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Gym_DB.dbo.vw_log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_log">
+          <Key>
+            <PropertyRef Name="PeopleName" />
+            <PropertyRef Name="LogID" />
+            <PropertyRef Name="PeopleID" />
+            <PropertyRef Name="PeopleDeptor" />
+            <PropertyRef Name="PeopleCreditor" />
+            <PropertyRef Name="PicID" />
+          </Key>
+          <Property Name="PeopleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="LogID" Type="int" Nullable="false" />
+          <Property Name="PeopleID" Type="int" Nullable="false" />
+          <Property Name="LogDateTimeIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="LogDateTimeOut" Type="nvarchar" MaxLength="50" />
+          <Property Name="PeopleType" Type="nvarchar" MaxLength="20" />
+          <Property Name="PeopleType2" Type="nvarchar" MaxLength="20" />
+          <Property Name="PeopleDeptor" Type="int" Nullable="false" />
+          <Property Name="PeopleCreditor" Type="int" Nullable="false" />
+          <Property Name="PeopleLogo" Type="varbinary(max)" />
+          <Property Name="PicID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Gym_DB.dbo.vw_newprogram' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_newprogram">
+          <Key>
+            <PropertyRef Name="PeopleName" />
+            <PropertyRef Name="NewProgramID" />
+            <PropertyRef Name="NewProgramDate" />
+            <PropertyRef Name="PeopleID" />
+          </Key>
+          <Property Name="PeopleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="NewProgramID" Type="int" Nullable="false" />
+          <Property Name="NewProgramDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PeopleID" Type="int" Nullable="false" />
+          <Property Name="NewProgramDesc" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Gym_DB.dbo.Vw_Period' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Vw_Period">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="Perioddate" />
+            <PropertyRef Name="peopleID" />
+            <PropertyRef Name="PeopleName" />
+          </Key>
+          <Property Name="PeriodID" Type="int" Nullable="false" />
+          <Property Name="Perioddate" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PeriodDesc" Type="nvarchar(max)" />
+          <Property Name="peopleID" Type="int" Nullable="false" />
+          <Property Name="PeopleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Gym_DB.dbo.vw_Peyment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Peyment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+            <PropertyRef Name="PeopleID" />
+            <PropertyRef Name="PaymentPay" />
+            <PropertyRef Name="Datetime" />
+            <PropertyRef Name="PaymentStatus" />
+            <PropertyRef Name="PaymentSave" />
+            <PropertyRef Name="PeopleName" />
+          </Key>
+          <Property Name="PaymentID" Type="int" Nullable="false" />
+          <Property Name="PeopleID" Type="int" Nullable="false" />
+          <Property Name="PaymentPay" Type="int" Nullable="false" />
+          <Property Name="Datetime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PaymentStatus" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PaymentSave" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PeopleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Gym_DB.dbo.Vw_Program' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Vw_Program">
+          <Key>
+            <PropertyRef Name="PeopleName" />
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="PeopleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProgramID" Type="int" Nullable="false" />
+          <Property Name="ProgramName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProgramTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProgramBinary" Type="varbinary(max)" />
+          <Property Name="PeopleID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_shahrieh">
+          <Key>
+            <PropertyRef Name="ShahriehOUT" />
+            <PropertyRef Name="PeopleName" />
+          </Key>
+          <Property Name="ShahriehOUT" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="PeopleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PeopleMobile" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Log_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Logs">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewProgram_people">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="NewProgram" Type="Self.NewProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="NewProgram">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewProgramItem_NewProgram">
+          <End Role="NewProgram" Type="Self.NewProgram" Multiplicity="1" />
+          <End Role="NewProgramItem" Type="Self.NewProgramItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewProgram">
+              <PropertyRef Name="NewProgramID" />
+            </Principal>
+            <Dependent Role="NewProgramItem">
+              <PropertyRef Name="NewProgramID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Period_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Period" Type="Self.Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Period">
+              <PropertyRef Name="peopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Program_People">
+          <End Role="People" Type="Self.People" Multiplicity="0..1" />
+          <End Role="Program" Type="Self.Program" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Program">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shahrieh_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Shahrieh" Type="Self.Shahrieh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Shahrieh">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ClosePeriod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="desc" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="closetheprogram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="desc" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="deletePeople" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ExitPersonDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="date" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="findProgramID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetSmsValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="password" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="sender" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="InsertGym1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="manager" Type="nvarchar" Mode="In" />
+          <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="tel" Type="nvarchar" Mode="In" />
+          <Parameter Name="website" Type="nvarchar" Mode="In" />
+          <Parameter Name="insta" Type="nvarchar" Mode="In" />
+          <Parameter Name="telegram" Type="nvarchar" Mode="In" />
+          <Parameter Name="whatsup" Type="nvarchar" Mode="In" />
+          <Parameter Name="workhour" Type="nvarchar" Mode="In" />
+          <Parameter Name="smsusername" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+          <Parameter Name="sender" Type="nvarchar" Mode="In" />
+          <Parameter Name="weekend" Type="nvarchar" Mode="In" />
+          <Parameter Name="logo" Type="image" Mode="In" />
+        </Function>
+        <Function Name="InsertGym2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="manager" Type="nvarchar" Mode="In" />
+          <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="tel" Type="nvarchar" Mode="In" />
+          <Parameter Name="website" Type="nvarchar" Mode="In" />
+          <Parameter Name="insta" Type="nvarchar" Mode="In" />
+          <Parameter Name="telegram" Type="nvarchar" Mode="In" />
+          <Parameter Name="whatsup" Type="nvarchar" Mode="In" />
+          <Parameter Name="workhour" Type="nvarchar" Mode="In" />
+          <Parameter Name="smsusername" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+          <Parameter Name="sender" Type="nvarchar" Mode="In" />
+          <Parameter Name="weekend" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertPay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Pay" Type="int" Mode="In" />
+          <Parameter Name="date" Type="nvarchar" Mode="In" />
+          <Parameter Name="status" Type="nvarchar" Mode="In" />
+          <Parameter Name="save" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertPeople" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="mobile" Type="nvarchar" Mode="In" />
+          <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="mellicode" Type="nvarchar" Mode="In" />
+          <Parameter Name="type" Type="nvarchar" Mode="In" />
+          <Parameter Name="type2" Type="nvarchar" Mode="In" />
+          <Parameter Name="deptor" Type="int" Mode="In" />
+          <Parameter Name="creditor" Type="int" Mode="In" />
+          <Parameter Name="logo" Type="image" Mode="In" />
+        </Function>
+        <Function Name="InsertPeople2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="mobile" Type="nvarchar" Mode="In" />
+          <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="mellicode" Type="nvarchar" Mode="In" />
+          <Parameter Name="type" Type="nvarchar" Mode="In" />
+          <Parameter Name="type2" Type="nvarchar" Mode="In" />
+          <Parameter Name="deptor" Type="int" Mode="In" />
+          <Parameter Name="creditor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertPeriod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="date" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertPeriodItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Product" Type="nvarchar" Mode="In" />
+          <Parameter Name="count" Type="nvarchar" Mode="In" />
+          <Parameter Name="fee" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertPersonDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="date" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertProgram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="item" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="count" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertprogramnew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="date" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertshahriehdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="datein" Type="nvarchar" Mode="In" />
+          <Parameter Name="dateout" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SaveProgram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
+          <Parameter Name="binary" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="ShowPeople" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ShowPeopleByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updatedeptor1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="deptor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updatedeptor2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="deptor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updatedeptor3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="deptor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="updatedeptor4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="deptor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Updatedeptor5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="deptor" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Updatedeptor6" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UpdateGym1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="manager" Type="nvarchar" Mode="In" />
+          <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="tel" Type="nvarchar" Mode="In" />
+          <Parameter Name="website" Type="nvarchar" Mode="In" />
+          <Parameter Name="insta" Type="nvarchar" Mode="In" />
+          <Parameter Name="telegram" Type="nvarchar" Mode="In" />
+          <Parameter Name="whatsup" Type="nvarchar" Mode="In" />
+          <Parameter Name="workhour" Type="nvarchar" Mode="In" />
+          <Parameter Name="smsusername" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+          <Parameter Name="sender" Type="nvarchar" Mode="In" />
+          <Parameter Name="weekend" Type="nvarchar" Mode="In" />
+          <Parameter Name="logo" Type="image" Mode="In" />
+        </Function>
+        <Function Name="UpdateGym2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="manager" Type="nvarchar" Mode="In" />
+          <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="tel" Type="nvarchar" Mode="In" />
+          <Parameter Name="website" Type="nvarchar" Mode="In" />
+          <Parameter Name="insta" Type="nvarchar" Mode="In" />
+          <Parameter Name="telegram" Type="nvarchar" Mode="In" />
+          <Parameter Name="whatsup" Type="nvarchar" Mode="In" />
+          <Parameter Name="workhour" Type="nvarchar" Mode="In" />
+          <Parameter Name="smsusername" Type="nvarchar" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+          <Parameter Name="sender" Type="nvarchar" Mode="In" />
+          <Parameter Name="weekend" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="nvarchar" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdatePeople1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="mobile" Type="nvarchar" Mode="In" />
+          <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="mellicode" Type="nvarchar" Mode="In" />
+          <Parameter Name="type" Type="nvarchar" Mode="In" />
+          <Parameter Name="type2" Type="nvarchar" Mode="In" />
+          <Parameter Name="logo" Type="image" Mode="In" />
+        </Function>
+        <Function Name="UpdatePeople2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="name" Type="nvarchar" Mode="In" />
+          <Parameter Name="mobile" Type="nvarchar" Mode="In" />
+          <Parameter Name="address" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="mellicode" Type="nvarchar" Mode="In" />
+          <Parameter Name="type" Type="nvarchar" Mode="In" />
+          <Parameter Name="type2" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Gym_DBModelStoreContainer">
+          <EntitySet Name="Gym" EntityType="Self.Gym" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewProgram" EntityType="Self.NewProgram" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewProgramItem" EntityType="Self.NewProgramItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Period" EntityType="Self.Period" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PeriodItems" EntityType="Self.PeriodItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shahrieh" EntityType="Self.Shahrieh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_log" EntityType="Self.vw_log" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_log].[PeopleName] AS [PeopleName], 
+    [vw_log].[LogID] AS [LogID], 
+    [vw_log].[PeopleID] AS [PeopleID], 
+    [vw_log].[LogDateTimeIN] AS [LogDateTimeIN], 
+    [vw_log].[LogDateTimeOut] AS [LogDateTimeOut], 
+    [vw_log].[PeopleType] AS [PeopleType], 
+    [vw_log].[PeopleType2] AS [PeopleType2], 
+    [vw_log].[PeopleDeptor] AS [PeopleDeptor], 
+    [vw_log].[PeopleCreditor] AS [PeopleCreditor], 
+    [vw_log].[PeopleLogo] AS [PeopleLogo], 
+    [vw_log].[PicID] AS [PicID]
+    FROM [dbo].[vw_log] AS [vw_log]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_newprogram" EntityType="Self.vw_newprogram" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_newprogram].[PeopleName] AS [PeopleName], 
+    [vw_newprogram].[NewProgramID] AS [NewProgramID], 
+    [vw_newprogram].[NewProgramDate] AS [NewProgramDate], 
+    [vw_newprogram].[PeopleID] AS [PeopleID], 
+    [vw_newprogram].[NewProgramDesc] AS [NewProgramDesc]
+    FROM [dbo].[vw_newprogram] AS [vw_newprogram]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vw_Period" EntityType="Self.Vw_Period" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vw_Period].[PeriodID] AS [PeriodID], 
+    [Vw_Period].[Perioddate] AS [Perioddate], 
+    [Vw_Period].[PeriodDesc] AS [PeriodDesc], 
+    [Vw_Period].[peopleID] AS [peopleID], 
+    [Vw_Period].[PeopleName] AS [PeopleName]
+    FROM [dbo].[Vw_Period] AS [Vw_Period]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Peyment" EntityType="Self.vw_Peyment" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Peyment].[PaymentID] AS [PaymentID], 
+    [vw_Peyment].[PeopleID] AS [PeopleID], 
+    [vw_Peyment].[PaymentPay] AS [PaymentPay], 
+    [vw_Peyment].[Datetime] AS [Datetime], 
+    [vw_Peyment].[PaymentStatus] AS [PaymentStatus], 
+    [vw_Peyment].[PaymentSave] AS [PaymentSave], 
+    [vw_Peyment].[PeopleName] AS [PeopleName]
+    FROM [dbo].[vw_Peyment] AS [vw_Peyment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vw_Program" EntityType="Self.Vw_Program" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vw_Program].[PeopleName] AS [PeopleName], 
+    [Vw_Program].[ProgramID] AS [ProgramID], 
+    [Vw_Program].[ProgramName] AS [ProgramName], 
+    [Vw_Program].[ProgramTitle] AS [ProgramTitle], 
+    [Vw_Program].[ProgramBinary] AS [ProgramBinary], 
+    [Vw_Program].[PeopleID] AS [PeopleID]
+    FROM [dbo].[Vw_Program] AS [Vw_Program]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_shahrieh" EntityType="Self.vw_shahrieh" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_shahrieh].[ShahriehOUT] AS [ShahriehOUT], 
+    [vw_shahrieh].[PeopleName] AS [PeopleName], 
+    [vw_shahrieh].[PeopleMobile] AS [PeopleMobile]
+    FROM [dbo].[vw_shahrieh] AS [vw_shahrieh]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Log_People" Association="Self.FK_Log_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Logs" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewProgram_people" Association="Self.FK_NewProgram_people">
+            <End Role="People" EntitySet="People" />
+            <End Role="NewProgram" EntitySet="NewProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewProgramItem_NewProgram" Association="Self.FK_NewProgramItem_NewProgram">
+            <End Role="NewProgram" EntitySet="NewProgram" />
+            <End Role="NewProgramItem" EntitySet="NewProgramItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_People" Association="Self.FK_Payment_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Period_People" Association="Self.FK_Period_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Period" EntitySet="Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Program_People" Association="Self.FK_Program_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Program" EntitySet="Program" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shahrieh_People" Association="Self.FK_Shahrieh_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Shahrieh" EntitySet="Shahrieh" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Gym_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Gym">
+          <Key>
+            <PropertyRef Name="GymID" />
+          </Key>
+          <Property Name="GymID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GymName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GymManager" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GymAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GymTel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GymWebsite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GymInstagram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GymTelegram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GymWhatsup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GymWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gymsmsusername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GymsmsPass" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Gymsmssender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gymreciew" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GymWeekend" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GymLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PicID" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginUserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginPassword" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeopleID" Type="Int32" Nullable="false" />
+          <Property Name="LogDateTimeIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogDateTimeOut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="People" Relationship="Self.FK_Log_People" FromRole="Logs" ToRole="People" />
+        </EntityType>
+        <EntityType Name="NewProgram">
+          <Key>
+            <PropertyRef Name="NewProgramID" />
+          </Key>
+          <Property Name="NewProgramID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewProgramDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeopleID" Type="Int32" Nullable="false" />
+          <Property Name="NewProgramDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="People" Relationship="Self.FK_NewProgram_people" FromRole="NewProgram" ToRole="People" />
+          <NavigationProperty Name="NewProgramItem" Relationship="Self.FK_NewProgramItem_NewProgram" FromRole="NewProgram" ToRole="NewProgramItem" />
+        </EntityType>
+        <EntityType Name="NewProgramItem">
+          <Key>
+            <PropertyRef Name="NewProgramItemID" />
+          </Key>
+          <Property Name="NewProgramItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewProgramItemItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewProgramItemcount" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewProgramID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NewProgram" Relationship="Self.FK_NewProgramItem_NewProgram" FromRole="NewProgramItem" ToRole="NewProgram" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeopleID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentPay" Type="Int32" Nullable="false" />
+          <Property Name="Datetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaymentSave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="People" Relationship="Self.FK_Payment_People" FromRole="Payment" ToRole="People" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="PeopleID" />
+          </Key>
+          <Property Name="PeopleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeopleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeopleMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleMellicode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleType2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleDeptor" Type="Int32" Nullable="false" />
+          <Property Name="PeopleCreditor" Type="Int32" Nullable="false" />
+          <Property Name="PeopleLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PicID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Logs" Relationship="Self.FK_Log_People" FromRole="People" ToRole="Logs" />
+          <NavigationProperty Name="NewProgram" Relationship="Self.FK_NewProgram_people" FromRole="People" ToRole="NewProgram" />
+          <NavigationProperty Name="Payment" Relationship="Self.FK_Payment_People" FromRole="People" ToRole="Payment" />
+          <NavigationProperty Name="Program" Relationship="Self.FK_Program_People" FromRole="People" ToRole="Program" />
+          <NavigationProperty Name="Shahrieh" Relationship="Self.FK_Shahrieh_People" FromRole="People" ToRole="Shahrieh" />
+          <NavigationProperty Name="Period" Relationship="Gym_DBModel.FK_Period_People" FromRole="People" ToRole="Period" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="ProgramID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProgramName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PeopleID" Type="Int32" />
+          <NavigationProperty Name="People" Relationship="Self.FK_Program_People" FromRole="Program" ToRole="People" />
+        </EntityType>
+        <EntityType Name="Shahrieh">
+          <Key>
+            <PropertyRef Name="ShahriehID" />
+          </Key>
+          <Property Name="ShahriehID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShahriehDateIN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShahriehOUT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeopleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="People" Relationship="Self.FK_Shahrieh_People" FromRole="Shahrieh" ToRole="People" />
+        </EntityType>
+        <EntityType Name="vw_log">
+          <Key>
+            <PropertyRef Name="PeopleName" />
+            <PropertyRef Name="LogID" />
+            <PropertyRef Name="PeopleID" />
+            <PropertyRef Name="PeopleDeptor" />
+            <PropertyRef Name="PeopleCreditor" />
+            <PropertyRef Name="PicID" />
+          </Key>
+          <Property Name="PeopleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LogID" Type="Int32" Nullable="false" />
+          <Property Name="PeopleID" Type="Int32" Nullable="false" />
+          <Property Name="LogDateTimeIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LogDateTimeOut" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleType2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleDeptor" Type="Int32" Nullable="false" />
+          <Property Name="PeopleCreditor" Type="Int32" Nullable="false" />
+          <Property Name="PeopleLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PicID" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_Peyment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+            <PropertyRef Name="PeopleID" />
+            <PropertyRef Name="PaymentPay" />
+            <PropertyRef Name="Datetime" />
+            <PropertyRef Name="PaymentStatus" />
+            <PropertyRef Name="PaymentSave" />
+            <PropertyRef Name="PeopleName" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" />
+          <Property Name="PeopleID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentPay" Type="Int32" Nullable="false" />
+          <Property Name="Datetime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaymentSave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeopleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vw_Program">
+          <Key>
+            <PropertyRef Name="PeopleName" />
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="PeopleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProgramID" Type="Int32" Nullable="false" />
+          <Property Name="ProgramName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramBinary" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PeopleID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="vw_shahrieh">
+          <Key>
+            <PropertyRef Name="ShahriehOUT" />
+            <PropertyRef Name="PeopleName" />
+          </Key>
+          <Property Name="ShahriehOUT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeopleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeopleMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Log_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Logs">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewProgram_people">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="NewProgram" Type="Self.NewProgram" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="NewProgram">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewProgramItem_NewProgram">
+          <End Role="NewProgram" Type="Self.NewProgram" Multiplicity="1" />
+          <End Role="NewProgramItem" Type="Self.NewProgramItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NewProgram">
+              <PropertyRef Name="NewProgramID" />
+            </Principal>
+            <Dependent Role="NewProgramItem">
+              <PropertyRef Name="NewProgramID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Program_People">
+          <End Role="People" Type="Self.People" Multiplicity="0..1" />
+          <End Role="Program" Type="Self.Program" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Program">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Shahrieh_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Shahrieh" Type="Self.Shahrieh" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Shahrieh">
+              <PropertyRef Name="PeopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Gym_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Gym" EntityType="Self.Gym" />
+          <EntitySet Name="Login" EntityType="Self.Login" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" />
+          <EntitySet Name="NewProgram" EntityType="Self.NewProgram" />
+          <EntitySet Name="NewProgramItem" EntityType="Self.NewProgramItem" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" />
+          <EntitySet Name="People" EntityType="Self.People" />
+          <EntitySet Name="Program" EntityType="Self.Program" />
+          <EntitySet Name="Shahrieh" EntityType="Self.Shahrieh" />
+          <EntitySet Name="vw_log" EntityType="Self.vw_log" />
+          <EntitySet Name="vw_Peyment" EntityType="Self.vw_Peyment" />
+          <EntitySet Name="Vw_Program" EntityType="Self.Vw_Program" />
+          <EntitySet Name="vw_shahrieh" EntityType="Self.vw_shahrieh" />
+          <AssociationSet Name="FK_Log_People" Association="Self.FK_Log_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Logs" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewProgram_people" Association="Self.FK_NewProgram_people">
+            <End Role="People" EntitySet="People" />
+            <End Role="NewProgram" EntitySet="NewProgram" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewProgramItem_NewProgram" Association="Self.FK_NewProgramItem_NewProgram">
+            <End Role="NewProgram" EntitySet="NewProgram" />
+            <End Role="NewProgramItem" EntitySet="NewProgramItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_People" Association="Self.FK_Payment_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Program_People" Association="Self.FK_Program_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Program" EntitySet="Program" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shahrieh_People" Association="Self.FK_Shahrieh_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Shahrieh" EntitySet="Shahrieh" />
+          </AssociationSet>
+          <FunctionImport Name="closetheprogram">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="deletePeople">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ExitPersonDate">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="findProgramID" ReturnType="Collection(Gym_DBModel.findProgramID_Result)" />
+          <FunctionImport Name="GetSmsValue">
+            <Parameter Name="username" Mode="InOut" Type="String" />
+            <Parameter Name="password" Mode="InOut" Type="String" />
+            <Parameter Name="sender" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertGym1">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="manager" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="tel" Mode="In" Type="String" />
+            <Parameter Name="website" Mode="In" Type="String" />
+            <Parameter Name="insta" Mode="In" Type="String" />
+            <Parameter Name="telegram" Mode="In" Type="String" />
+            <Parameter Name="whatsup" Mode="In" Type="String" />
+            <Parameter Name="workhour" Mode="In" Type="String" />
+            <Parameter Name="smsusername" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="sender" Mode="In" Type="String" />
+            <Parameter Name="weekend" Mode="In" Type="String" />
+            <Parameter Name="logo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="InsertGym2">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="manager" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="tel" Mode="In" Type="String" />
+            <Parameter Name="website" Mode="In" Type="String" />
+            <Parameter Name="insta" Mode="In" Type="String" />
+            <Parameter Name="telegram" Mode="In" Type="String" />
+            <Parameter Name="whatsup" Mode="In" Type="String" />
+            <Parameter Name="workhour" Mode="In" Type="String" />
+            <Parameter Name="smsusername" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="sender" Mode="In" Type="String" />
+            <Parameter Name="weekend" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertLogin">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPay">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Pay" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="In" Type="String" />
+            <Parameter Name="save" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPeople">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="mobile" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="mellicode" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="type2" Mode="In" Type="String" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+            <Parameter Name="creditor" Mode="In" Type="Int32" />
+            <Parameter Name="logo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPeople2">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="mobile" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="mellicode" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="type2" Mode="In" Type="String" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+            <Parameter Name="creditor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPersonDate">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertProgram">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="item" Mode="In" Type="String" />
+            <Parameter Name="count" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertprogramnew">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertshahriehdate">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="datein" Mode="In" Type="String" />
+            <Parameter Name="dateout" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SaveProgram">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="title" Mode="In" Type="String" />
+            <Parameter Name="binary" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="ShowPeople" ReturnType="Collection(Gym_DBModel.ShowPeople_Result)" />
+          <FunctionImport Name="ShowPeopleByID" ReturnType="Collection(Gym_DBModel.ShowPeopleByID_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updatedeptor1">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updatedeptor2">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updatedeptor3">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="updatedeptor4">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Updatedeptor5">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Updatedeptor6">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateGym1">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="manager" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="tel" Mode="In" Type="String" />
+            <Parameter Name="website" Mode="In" Type="String" />
+            <Parameter Name="insta" Mode="In" Type="String" />
+            <Parameter Name="telegram" Mode="In" Type="String" />
+            <Parameter Name="whatsup" Mode="In" Type="String" />
+            <Parameter Name="workhour" Mode="In" Type="String" />
+            <Parameter Name="smsusername" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="sender" Mode="In" Type="String" />
+            <Parameter Name="weekend" Mode="In" Type="String" />
+            <Parameter Name="logo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateGym2">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="manager" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="tel" Mode="In" Type="String" />
+            <Parameter Name="website" Mode="In" Type="String" />
+            <Parameter Name="insta" Mode="In" Type="String" />
+            <Parameter Name="telegram" Mode="In" Type="String" />
+            <Parameter Name="whatsup" Mode="In" Type="String" />
+            <Parameter Name="workhour" Mode="In" Type="String" />
+            <Parameter Name="smsusername" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="sender" Mode="In" Type="String" />
+            <Parameter Name="weekend" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateLogin">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePeople1">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="mobile" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="mellicode" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="type2" Mode="In" Type="String" />
+            <Parameter Name="logo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePeople2">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="mobile" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="mellicode" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+            <Parameter Name="type2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPeriodItem">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Product" Mode="In" Type="String" />
+            <Parameter Name="count" Mode="In" Type="String" />
+            <Parameter Name="fee" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="PeriodItems" EntityType="Gym_DBModel.PeriodItems" />
+          <EntitySet Name="Period" EntityType="Gym_DBModel.Period" />
+          <AssociationSet Name="FK_Period_People" Association="Gym_DBModel.FK_Period_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Period" EntitySet="Period" />
+          </AssociationSet>
+          <FunctionImport Name="ClosePeriod">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPeriod">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="vw_newprogram" EntityType="Gym_DBModel.vw_newprogram" />
+          <EntitySet Name="Vw_Period" EntityType="Gym_DBModel.Vw_Period" />
+        </EntityContainer>
+        <ComplexType Name="findProgramID_Result">
+          <Property Type="Int32" Name="NewProgramID" Nullable="false" />
+          <Property Type="String" Name="NewProgramDate" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="PeopleID" Nullable="false" />
+          <Property Type="String" Name="NewProgramDesc" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ShowPeople_Result">
+          <Property Type="Int32" Name="PeopleID" Nullable="false" />
+          <Property Type="String" Name="PeopleName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="PeopleMobile" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PeopleAddress" Nullable="true" />
+          <Property Type="String" Name="PeopleMellicode" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PeopleType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PeopleType2" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="PeopleDeptor" Nullable="false" />
+          <Property Type="Int32" Name="PeopleCreditor" Nullable="false" />
+          <Property Type="Binary" Name="PeopleLogo" Nullable="true" />
+          <Property Type="Guid" Name="PicID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ShowPeopleByID_Result">
+          <Property Type="Int32" Name="PeopleID" Nullable="false" />
+          <Property Type="String" Name="PeopleName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="PeopleMobile" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PeopleAddress" Nullable="true" />
+          <Property Type="String" Name="PeopleMellicode" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PeopleType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PeopleType2" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="PeopleDeptor" Nullable="false" />
+          <Property Type="Int32" Name="PeopleCreditor" Nullable="false" />
+          <Property Type="Binary" Name="PeopleLogo" Nullable="true" />
+          <Property Type="Guid" Name="PicID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="PeriodItems">
+          <Key>
+            <PropertyRef Name="PeriodItemID" />
+          </Key>
+          <Property Name="PeriodItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodID" Type="Int32" Nullable="false" />
+          <Property Name="PeriodItemProduct" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodItemCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodItemFee" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Perioddate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="peopleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="People" Relationship="Gym_DBModel.FK_Period_People" FromRole="Period" ToRole="People" />
+        </EntityType>
+        <Association Name="FK_Period_People">
+          <End Type="Gym_DBModel.People" Role="People" Multiplicity="1" />
+          <End Type="Gym_DBModel.Period" Role="Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Period">
+              <PropertyRef Name="peopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vw_newprogram">
+          <Key>
+            <PropertyRef Name="PeopleName" />
+            <PropertyRef Name="NewProgramID" />
+            <PropertyRef Name="NewProgramDate" />
+            <PropertyRef Name="PeopleID" />
+          </Key>
+          <Property Name="PeopleName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NewProgramID" Type="Int32" Nullable="false" />
+          <Property Name="NewProgramDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleID" Type="Int32" Nullable="false" />
+          <Property Name="NewProgramDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vw_Period">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="Perioddate" />
+            <PropertyRef Name="peopleID" />
+            <PropertyRef Name="PeopleName" />
+          </Key>
+          <Property Name="PeriodID" Type="Int32" Nullable="false" />
+          <Property Name="Perioddate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="peopleID" Type="Int32" Nullable="false" />
+          <Property Name="PeopleName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Gym_DBModelStoreContainer" CdmEntityContainer="Gym_DBEntities">
+          <EntitySetMapping Name="Gym">
+            <EntityTypeMapping TypeName="Gym_DBModel.Gym">
+              <MappingFragment StoreEntitySet="Gym">
+                <ScalarProperty Name="GymID" ColumnName="GymID" />
+                <ScalarProperty Name="GymName" ColumnName="GymName" />
+                <ScalarProperty Name="GymManager" ColumnName="GymManager" />
+                <ScalarProperty Name="GymAddress" ColumnName="GymAddress" />
+                <ScalarProperty Name="GymTel" ColumnName="GymTel" />
+                <ScalarProperty Name="GymWebsite" ColumnName="GymWebsite" />
+                <ScalarProperty Name="GymInstagram" ColumnName="GymInstagram" />
+                <ScalarProperty Name="GymTelegram" ColumnName="GymTelegram" />
+                <ScalarProperty Name="GymWhatsup" ColumnName="GymWhatsup" />
+                <ScalarProperty Name="GymWork" ColumnName="GymWork" />
+                <ScalarProperty Name="Gymsmsusername" ColumnName="Gymsmsusername" />
+                <ScalarProperty Name="GymsmsPass" ColumnName="GymsmsPass" />
+                <ScalarProperty Name="Gymsmssender" ColumnName="Gymsmssender" />
+                <ScalarProperty Name="Gymreciew" ColumnName="Gymreciew" />
+                <ScalarProperty Name="GymWeekend" ColumnName="GymWeekend" />
+                <ScalarProperty Name="GymLogo" ColumnName="GymLogo" />
+                <ScalarProperty Name="PicID" ColumnName="PicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="Gym_DBModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+                <ScalarProperty Name="LoginPassword" ColumnName="LoginPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="Gym_DBModel.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="LogDateTimeIN" ColumnName="LogDateTimeIN" />
+                <ScalarProperty Name="LogDateTimeOut" ColumnName="LogDateTimeOut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewProgram">
+            <EntityTypeMapping TypeName="Gym_DBModel.NewProgram">
+              <MappingFragment StoreEntitySet="NewProgram">
+                <ScalarProperty Name="NewProgramID" ColumnName="NewProgramID" />
+                <ScalarProperty Name="NewProgramDate" ColumnName="NewProgramDate" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="NewProgramDesc" ColumnName="NewProgramDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewProgramItem">
+            <EntityTypeMapping TypeName="Gym_DBModel.NewProgramItem">
+              <MappingFragment StoreEntitySet="NewProgramItem">
+                <ScalarProperty Name="NewProgramItemID" ColumnName="NewProgramItemID" />
+                <ScalarProperty Name="NewProgramItemItems" ColumnName="NewProgramItemItems" />
+                <ScalarProperty Name="NewProgramItemcount" ColumnName="NewProgramItemcount" />
+                <ScalarProperty Name="NewProgramID" ColumnName="NewProgramID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment">
+            <EntityTypeMapping TypeName="Gym_DBModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="PaymentPay" ColumnName="PaymentPay" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="PaymentSave" ColumnName="PaymentSave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="Gym_DBModel.People">
+              <MappingFragment StoreEntitySet="People">
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="PeopleMobile" ColumnName="PeopleMobile" />
+                <ScalarProperty Name="PeopleAddress" ColumnName="PeopleAddress" />
+                <ScalarProperty Name="PeopleMellicode" ColumnName="PeopleMellicode" />
+                <ScalarProperty Name="PeopleType" ColumnName="PeopleType" />
+                <ScalarProperty Name="PeopleType2" ColumnName="PeopleType2" />
+                <ScalarProperty Name="PeopleDeptor" ColumnName="PeopleDeptor" />
+                <ScalarProperty Name="PeopleCreditor" ColumnName="PeopleCreditor" />
+                <ScalarProperty Name="PeopleLogo" ColumnName="PeopleLogo" />
+                <ScalarProperty Name="PicID" ColumnName="PicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Program">
+            <EntityTypeMapping TypeName="Gym_DBModel.Program">
+              <MappingFragment StoreEntitySet="Program">
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+                <ScalarProperty Name="ProgramTitle" ColumnName="ProgramTitle" />
+                <ScalarProperty Name="ProgramBinary" ColumnName="ProgramBinary" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shahrieh">
+            <EntityTypeMapping TypeName="Gym_DBModel.Shahrieh">
+              <MappingFragment StoreEntitySet="Shahrieh">
+                <ScalarProperty Name="ShahriehID" ColumnName="ShahriehID" />
+                <ScalarProperty Name="ShahriehDateIN" ColumnName="ShahriehDateIN" />
+                <ScalarProperty Name="ShahriehOUT" ColumnName="ShahriehOUT" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_log">
+            <EntityTypeMapping TypeName="Gym_DBModel.vw_log">
+              <MappingFragment StoreEntitySet="vw_log">
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="LogDateTimeIN" ColumnName="LogDateTimeIN" />
+                <ScalarProperty Name="LogDateTimeOut" ColumnName="LogDateTimeOut" />
+                <ScalarProperty Name="PeopleType" ColumnName="PeopleType" />
+                <ScalarProperty Name="PeopleType2" ColumnName="PeopleType2" />
+                <ScalarProperty Name="PeopleDeptor" ColumnName="PeopleDeptor" />
+                <ScalarProperty Name="PeopleCreditor" ColumnName="PeopleCreditor" />
+                <ScalarProperty Name="PeopleLogo" ColumnName="PeopleLogo" />
+                <ScalarProperty Name="PicID" ColumnName="PicID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Peyment">
+            <EntityTypeMapping TypeName="Gym_DBModel.vw_Peyment">
+              <MappingFragment StoreEntitySet="vw_Peyment">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="PaymentPay" ColumnName="PaymentPay" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="PaymentSave" ColumnName="PaymentSave" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vw_Program">
+            <EntityTypeMapping TypeName="Gym_DBModel.Vw_Program">
+              <MappingFragment StoreEntitySet="Vw_Program">
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+                <ScalarProperty Name="ProgramTitle" ColumnName="ProgramTitle" />
+                <ScalarProperty Name="ProgramBinary" ColumnName="ProgramBinary" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_shahrieh">
+            <EntityTypeMapping TypeName="Gym_DBModel.vw_shahrieh">
+              <MappingFragment StoreEntitySet="vw_shahrieh">
+                <ScalarProperty Name="ShahriehOUT" ColumnName="ShahriehOUT" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="PeopleMobile" ColumnName="PeopleMobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="closetheprogram" FunctionName="Gym_DBModel.Store.closetheprogram" />
+          <FunctionImportMapping FunctionImportName="deletePeople" FunctionName="Gym_DBModel.Store.deletePeople" />
+          <FunctionImportMapping FunctionImportName="ExitPersonDate" FunctionName="Gym_DBModel.Store.ExitPersonDate" />
+          <FunctionImportMapping FunctionImportName="findProgramID" FunctionName="Gym_DBModel.Store.findProgramID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.findProgramID_Result">
+                <ScalarProperty Name="NewProgramID" ColumnName="NewProgramID" />
+                <ScalarProperty Name="NewProgramDate" ColumnName="NewProgramDate" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="NewProgramDesc" ColumnName="NewProgramDesc" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSmsValue" FunctionName="Gym_DBModel.Store.GetSmsValue" />
+          <FunctionImportMapping FunctionImportName="InsertGym1" FunctionName="Gym_DBModel.Store.InsertGym1" />
+          <FunctionImportMapping FunctionImportName="InsertGym2" FunctionName="Gym_DBModel.Store.InsertGym2" />
+          <FunctionImportMapping FunctionImportName="InsertLogin" FunctionName="Gym_DBModel.Store.InsertLogin" />
+          <FunctionImportMapping FunctionImportName="InsertPay" FunctionName="Gym_DBModel.Store.InsertPay" />
+          <FunctionImportMapping FunctionImportName="InsertPeople" FunctionName="Gym_DBModel.Store.InsertPeople" />
+          <FunctionImportMapping FunctionImportName="InsertPeople2" FunctionName="Gym_DBModel.Store.InsertPeople2" />
+          <FunctionImportMapping FunctionImportName="InsertPersonDate" FunctionName="Gym_DBModel.Store.InsertPersonDate" />
+          <FunctionImportMapping FunctionImportName="insertProgram" FunctionName="Gym_DBModel.Store.insertProgram" />
+          <FunctionImportMapping FunctionImportName="insertprogramnew" FunctionName="Gym_DBModel.Store.insertprogramnew" />
+          <FunctionImportMapping FunctionImportName="insertshahriehdate" FunctionName="Gym_DBModel.Store.insertshahriehdate" />
+          <FunctionImportMapping FunctionImportName="SaveProgram" FunctionName="Gym_DBModel.Store.SaveProgram" />
+          <FunctionImportMapping FunctionImportName="ShowPeople" FunctionName="Gym_DBModel.Store.ShowPeople">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.ShowPeople_Result">
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="PeopleMobile" ColumnName="PeopleMobile" />
+                <ScalarProperty Name="PeopleAddress" ColumnName="PeopleAddress" />
+                <ScalarProperty Name="PeopleMellicode" ColumnName="PeopleMellicode" />
+                <ScalarProperty Name="PeopleType" ColumnName="PeopleType" />
+                <ScalarProperty Name="PeopleType2" ColumnName="PeopleType2" />
+                <ScalarProperty Name="PeopleDeptor" ColumnName="PeopleDeptor" />
+                <ScalarProperty Name="PeopleCreditor" ColumnName="PeopleCreditor" />
+                <ScalarProperty Name="PeopleLogo" ColumnName="PeopleLogo" />
+                <ScalarProperty Name="PicID" ColumnName="PicID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ShowPeopleByID" FunctionName="Gym_DBModel.Store.ShowPeopleByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.ShowPeopleByID_Result">
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="PeopleMobile" ColumnName="PeopleMobile" />
+                <ScalarProperty Name="PeopleAddress" ColumnName="PeopleAddress" />
+                <ScalarProperty Name="PeopleMellicode" ColumnName="PeopleMellicode" />
+                <ScalarProperty Name="PeopleType" ColumnName="PeopleType" />
+                <ScalarProperty Name="PeopleType2" ColumnName="PeopleType2" />
+                <ScalarProperty Name="PeopleDeptor" ColumnName="PeopleDeptor" />
+                <ScalarProperty Name="PeopleCreditor" ColumnName="PeopleCreditor" />
+                <ScalarProperty Name="PeopleLogo" ColumnName="PeopleLogo" />
+                <ScalarProperty Name="PicID" ColumnName="PicID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updatedeptor1" FunctionName="Gym_DBModel.Store.updatedeptor1" />
+          <FunctionImportMapping FunctionImportName="updatedeptor2" FunctionName="Gym_DBModel.Store.updatedeptor2" />
+          <FunctionImportMapping FunctionImportName="updatedeptor3" FunctionName="Gym_DBModel.Store.updatedeptor3" />
+          <FunctionImportMapping FunctionImportName="updatedeptor4" FunctionName="Gym_DBModel.Store.updatedeptor4" />
+          <FunctionImportMapping FunctionImportName="Updatedeptor5" FunctionName="Gym_DBModel.Store.Updatedeptor5" />
+          <FunctionImportMapping FunctionImportName="Updatedeptor6" FunctionName="Gym_DBModel.Store.Updatedeptor6" />
+          <FunctionImportMapping FunctionImportName="UpdateGym1" FunctionName="Gym_DBModel.Store.UpdateGym1" />
+          <FunctionImportMapping FunctionImportName="UpdateGym2" FunctionName="Gym_DBModel.Store.UpdateGym2" />
+          <FunctionImportMapping FunctionImportName="UpdateLogin" FunctionName="Gym_DBModel.Store.UpdateLogin" />
+          <FunctionImportMapping FunctionImportName="UpdatePeople1" FunctionName="Gym_DBModel.Store.UpdatePeople1" />
+          <FunctionImportMapping FunctionImportName="UpdatePeople2" FunctionName="Gym_DBModel.Store.UpdatePeople2" />
+          <FunctionImportMapping FunctionImportName="InsertPeriodItem" FunctionName="Gym_DBModel.Store.InsertPeriodItem" />
+          <EntitySetMapping Name="PeriodItems">
+            <EntityTypeMapping TypeName="Gym_DBModel.PeriodItems">
+              <MappingFragment StoreEntitySet="PeriodItems">
+                <ScalarProperty Name="PeriodItemFee" ColumnName="PeriodItemFee" />
+                <ScalarProperty Name="PeriodItemCount" ColumnName="PeriodItemCount" />
+                <ScalarProperty Name="PeriodItemProduct" ColumnName="PeriodItemProduct" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="PeriodItemID" ColumnName="PeriodItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Period">
+            <EntityTypeMapping TypeName="Gym_DBModel.Period">
+              <MappingFragment StoreEntitySet="Period">
+                <ScalarProperty Name="peopleID" ColumnName="peopleID" />
+                <ScalarProperty Name="PeriodDesc" ColumnName="PeriodDesc" />
+                <ScalarProperty Name="Perioddate" ColumnName="Perioddate" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ClosePeriod" FunctionName="Gym_DBModel.Store.ClosePeriod" />
+          <FunctionImportMapping FunctionImportName="InsertPeriod" FunctionName="Gym_DBModel.Store.InsertPeriod" />
+          <EntitySetMapping Name="vw_newprogram">
+            <EntityTypeMapping TypeName="Gym_DBModel.vw_newprogram">
+              <MappingFragment StoreEntitySet="vw_newprogram">
+                <ScalarProperty Name="NewProgramDesc" ColumnName="NewProgramDesc" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="NewProgramDate" ColumnName="NewProgramDate" />
+                <ScalarProperty Name="NewProgramID" ColumnName="NewProgramID" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vw_Period">
+            <EntityTypeMapping TypeName="Gym_DBModel.Vw_Period">
+              <MappingFragment StoreEntitySet="Vw_Period">
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="peopleID" ColumnName="peopleID" />
+                <ScalarProperty Name="PeriodDesc" ColumnName="PeriodDesc" />
+                <ScalarProperty Name="Perioddate" ColumnName="Perioddate" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

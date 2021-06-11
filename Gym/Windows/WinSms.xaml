@@ -1,0 +1,48 @@
+﻿<Window x:Class="Gym.Windows.WinSms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gym.Windows"
+        mc:Ignorable="d"
+        Title="WinSms" Height="350" FontFamily="a hamase" AllowsTransparency="True" Width="525" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent">
+    <Grid>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="350" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="525" Margin="0,0,-0.2,0" MouseDown="Rectangle_MouseDown">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFA700" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="492,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown_1" >
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="331,49,0,0" TextWrapping="Wrap" Text="متن SMS:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="167">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Button Content=" SMS ارسال" x:Name="BtnSendSms" HorizontalAlignment="Left" FontFamily="a hamase" Margin="26,306,0,0" VerticalAlignment="Top" Width="472" Height="27" Foreground="White" Background="#FFFF8600" BorderBrush="Red" Click="BtnSendSms_Click"  >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <RichTextBox HorizontalAlignment="Left"   x:Name="TxtSmsText" Height="213" Margin="26,77,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="472" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
+            <RichTextBox.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </RadialGradientBrush>
+            </RichTextBox.Background>
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+    </Grid>
+</Window>

@@ -1,0 +1,280 @@
+﻿<Window x:Class="Gym.Windows.WinShowUsers"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gym.Windows"
+        mc:Ignorable="d"
+        Title="WinShowUsers" Height="600" AllowsTransparency="True" Width="1200" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Activated="Window_Activated" Loaded="Window_Loaded">
+    <Grid>
+        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="600" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="1200" MouseDown="Rectangle_MouseDown_1">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFA700" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+
+        <Button Content="ورود" x:Name="Btninsert" HorizontalAlignment="Left" FontFamily="a hamase" Margin="179,15,0,0" VerticalAlignment="Top" Width="135" Height="27" Foreground="White" Background="Black" BorderBrush="#FF02DD52" Click="Btninsert_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button Content="خروج" x:Name="BtnExit" HorizontalAlignment="Left" FontFamily="a hamase" Margin="39,15,0,0" VerticalAlignment="Top" Width="135" Height="27" Foreground="White" Background="#FF150000" BorderBrush="Red" Click="BtnExit_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="1167,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown_1" >
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <DataGrid x:Name="DgvPeople"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="539" Margin="9,51,0,0" VerticalAlignment="Top" Width="1181" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}">
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="شماره" Binding="{Binding PeopleID}" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="40"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FFF94802"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="نام و نام خانوادگی" Binding="{Binding PeopleName}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="200"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FF9B5919"/>
+                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+
+                <DataGridTemplateColumn Header="عکس">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="70" Height="50" Source="{Binding PeopleLogo}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+
+
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="120"/>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="شماره موبایل" Binding="{Binding PeopleMobile}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="150"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FF3C830D"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="کد ملی" Binding="{Binding PeopleMellicode}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="150"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FF6A0948"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="آدرس" Binding="{Binding PeopleAddress}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="330"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FF0E4286"/>
+                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="نوع" Binding="{Binding PeopleType2}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="100"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FF6A0948"/>
+                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTextColumn Header="وضعیت" Binding="{Binding PeopleType}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="80"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FF6A0948"/>
+                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+
+                    <MenuItem Header="شخص جدید"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="people_click"/>
+                    <MenuItem Header=" ویرایش"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="edit_click"/>
+                    <MenuItem Header=" حذف"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="delete_click"/>
+                    <MenuItem Header="برنامه ی جدید"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="newprogram_click"/>
+                    <MenuItem Header="دوره ی جدید"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="newperiod_click"/>
+                    <MenuItem Header="نمایش وضعیت کلی"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="log_click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="1085,19,0,0" TextWrapping="Wrap" Text="جستجو:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBox HorizontalAlignment="Left" x:Name="TxtFilter" Height="27" TabIndex="0" Margin="568,15,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="512" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" TextChanged="TxtFilter_TextChanged">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </RadialGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <Button Content="صدور کارت عضویت" x:Name="BtnCart" HorizontalAlignment="Left" FontFamily="a hamase" Margin="332,15,0,0" VerticalAlignment="Top" Width="218" Height="27" Foreground="White" BorderBrush="#FF02B5DD" Click="BtnCart_Click" >
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+    </Grid>
+</Window>

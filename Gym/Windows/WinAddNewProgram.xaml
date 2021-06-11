@@ -1,0 +1,180 @@
+﻿<Window x:Class="Gym.Windows.WinAddNewProgram"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gym.Windows"
+        mc:Ignorable="d"
+        Title="WinAddNewProgram" Height="600" FontFamily="a hamase" AllowsTransparency="True" Width="1200" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded">
+    <Grid>
+        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="600"  RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="1200" MouseDown="Rectangle_MouseDown">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFA700" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="1167,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown_1" >
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <TextBox HorizontalAlignment="Left" x:Name="Txtitem" Height="27" TabIndex="0" Margin="453,55,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="607" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtitem_PreviewTextInput" >
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </RadialGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="1077,59,0,0" TextWrapping="Wrap" Text="نام حرکت:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBox HorizontalAlignment="Left" x:Name="Txtcount" Height="27" TabIndex="0" Margin="141,55,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtcount_PreviewTextInput" >
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </RadialGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="347,59,0,0" TextWrapping="Wrap" Text="تعداد در هر ست:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <DataGrid x:Name="DgvProgramItems"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="416" Margin="9,87,0,0" VerticalAlignment="Top" Width="1181" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}">
+            <DataGrid.Effect>
+                <DropShadowEffect/>
+            </DataGrid.Effect>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="شماره" Binding="{Binding NewProgramItemID }" >
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="100"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FFF94802"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="توضیحات هر ست" Binding="{Binding NewProgramItemItems}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="900"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FF9B5919"/>
+                            <Setter Property="FontSize" Value="13"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+
+
+                <DataGridTextColumn Header="تعداد هر ست" Binding="{Binding NewProgramItemcount}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="FontSize" Value="12"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="Width" Value="150"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="FontFamily" Value="a hamase"/>
+                            <Setter Property="Foreground" Value="#FF3C830D"/>
+                            <Setter Property="FontSize" Value="15"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header=" حذف"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="delete_click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <Button Content="ثبت" IsDefault="True" x:Name="Btninsert" HorizontalAlignment="Left" FontFamily="a hamase" Margin="10,55,0,0" VerticalAlignment="Top" Width="125" Height="27" Foreground="White" Background="Black" BorderBrush="#FF02DD52" Click="Btninsert_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="649,12,0,0" TextWrapping="Wrap" Text="نوشتن برنامه برای:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" x:Name="lblname" FlowDirection="RightToLeft" Margin="437,10,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Height="29" Width="207" Foreground="#FF7CE440" FontFamily="A Hamase" FontSize="16" />
+        <Button Content=" ثبت کلی برنامه در دیتابیس" IsDefault="True" x:Name="BtnCloseProgram" HorizontalAlignment="Left" FontFamily="a hamase" Margin="9,508,0,0" VerticalAlignment="Top" Width="190" Height="82" Foreground="White" Background="Black" BorderBrush="#FF02A5DD" Click="BtnCloseProgram_Click"  >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <TextBox HorizontalAlignment="Left" x:Name="TxtDescription" Height="82" Margin="204,508,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="801" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="TxtDescription_PreviewTextInput"  >
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </RadialGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="1010,537,0,0" TextWrapping="Wrap" Text="توضیحات مربوط به برنامه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="167">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+    </Grid>
+</Window>

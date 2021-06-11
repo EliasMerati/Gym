@@ -1,0 +1,10 @@
+﻿<Application x:Class="Gym.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Gym"
+             ShutdownMode="OnExplicitShutdown"
+             Startup="startup_Login">
+    <Application.Resources>
+        <ResourceDictionary Source="Them/BubbleCreme.xaml"/>
+    </Application.Resources>
+</Application>

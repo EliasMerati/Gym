@@ -1,0 +1,66 @@
+﻿<Window x:Class="Gym.Windows.WinAddLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gym.Windows"
+        mc:Ignorable="d"
+        Title="WinAddLogin" Height="300" Width="400" WindowStyle="None" WindowStartupLocation="CenterScreen" FontFamily="a hamase" Background="Transparent" AllowsTransparency="True" Loaded="Window_Loaded">
+    <Grid>
+        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="300" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="400" MouseDown="Rectangle_MouseDown">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFA700" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <PasswordBox HorizontalAlignment="Left" x:Name="TxtPassword" TabIndex="1" Margin="28,122,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="238" Height="27" HorizontalContentAlignment="Center" BorderBrush="Yellow" Foreground="Black" PreviewTextInput="TxtPassword_PreviewTextInput"  >
+            <PasswordBox.Effect>
+                <DropShadowEffect/>
+            </PasswordBox.Effect>
+            <PasswordBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="0.996"/>
+                </LinearGradientBrush>
+            </PasswordBox.Background>
+        </PasswordBox>
+        <TextBlock HorizontalAlignment="Left" Margin="266,123,0,0" TextWrapping="Wrap" Text="رمز عبور:" FlowDirection="RightToLeft" VerticalAlignment="Top" Width="80" Foreground="#FFF1ECC5" FontFamily="A Hamase" FontSize="16"/>
+        <Button Content="ثبت " x:Name="BtnSave" IsDefault="True" HorizontalAlignment="Left" TabIndex="3" FontFamily="a hamase" Margin="28,243,0,0" VerticalAlignment="Top" Width="135" Height="27" Foreground="#FFFFF600" Background="Black" BorderBrush="#FF00FF5E" Click="Btninsert_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="281,67,0,0" TextWrapping="Wrap" Text="نام کاربری:" FlowDirection="RightToLeft" VerticalAlignment="Top" Width="81" Foreground="#FFF1ECC5" FontFamily="A Hamase" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="274,179,0,0" TextWrapping="Wrap" Text="نام ادمین:" FlowDirection="RightToLeft" VerticalAlignment="Top" Width="72" Foreground="#FFF1ECC5" FontFamily="A Hamase" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left"  x:Name="TxtUserName" Height="27" TabIndex="0" Margin="28,66,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="TxtUserName_PreviewTextInput"   >
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </RadialGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox HorizontalAlignment="Left" x:Name="TxtAdmin" Height="27" TabIndex="2" Margin="28,178,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </RadialGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="367,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown" >
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+
+    </Grid>
+</Window>

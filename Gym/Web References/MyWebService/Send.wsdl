@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="Send" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="Send" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">WebService For Send And Recive Sms </wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="Send">
+      <s:element name="SendSms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="flash" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="recId" type="tns:ArrayOfLong" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLong">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="long" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendSmsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="recId" type="tns:ArrayOfLong" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Credit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreditResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delivery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="recId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeliveryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeliveryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInbox">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="day" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="hour" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="minute" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboxResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="double" type="s:double" />
+      <s:element name="int" type="s:int" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSmsSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSms" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreditSoapIn">
+    <wsdl:part name="parameters" element="tns:Credit" />
+  </wsdl:message>
+  <wsdl:message name="CreditSoapOut">
+    <wsdl:part name="parameters" element="tns:CreditResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeliverySoapIn">
+    <wsdl:part name="parameters" element="tns:Delivery" />
+  </wsdl:message>
+  <wsdl:message name="DeliverySoapOut">
+    <wsdl:part name="parameters" element="tns:DeliveryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInbox" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreditHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreditHttpGetOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="DeliveryHttpGetIn">
+    <wsdl:part name="recId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeliveryHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="to" type="s:string" />
+    <wsdl:part name="year" type="s:string" />
+    <wsdl:part name="month" type="s:string" />
+    <wsdl:part name="day" type="s:string" />
+    <wsdl:part name="hour" type="s:string" />
+    <wsdl:part name="minute" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="CreditHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreditHttpPostOut">
+    <wsdl:part name="Body" element="tns:double" />
+  </wsdl:message>
+  <wsdl:message name="DeliveryHttpPostIn">
+    <wsdl:part name="recId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeliveryHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="to" type="s:string" />
+    <wsdl:part name="year" type="s:string" />
+    <wsdl:part name="month" type="s:string" />
+    <wsdl:part name="day" type="s:string" />
+    <wsdl:part name="hour" type="s:string" />
+    <wsdl:part name="minute" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:portType name="SendSoap">
+    <wsdl:operation name="SendSms">
+      <wsdl:input message="tns:SendSmsSoapIn" />
+      <wsdl:output message="tns:SendSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Credit">
+      <wsdl:input message="tns:CreditSoapIn" />
+      <wsdl:output message="tns:CreditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delivery">
+      <wsdl:input message="tns:DeliverySoapIn" />
+      <wsdl:output message="tns:DeliverySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <wsdl:input message="tns:GetInboxSoapIn" />
+      <wsdl:output message="tns:GetInboxSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SendHttpGet">
+    <wsdl:operation name="Credit">
+      <wsdl:input message="tns:CreditHttpGetIn" />
+      <wsdl:output message="tns:CreditHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delivery">
+      <wsdl:input message="tns:DeliveryHttpGetIn" />
+      <wsdl:output message="tns:DeliveryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <wsdl:input message="tns:GetInboxHttpGetIn" />
+      <wsdl:output message="tns:GetInboxHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SendHttpPost">
+    <wsdl:operation name="Credit">
+      <wsdl:input message="tns:CreditHttpPostIn" />
+      <wsdl:output message="tns:CreditHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delivery">
+      <wsdl:input message="tns:DeliveryHttpPostIn" />
+      <wsdl:output message="tns:DeliveryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <wsdl:input message="tns:GetInboxHttpPostIn" />
+      <wsdl:output message="tns:GetInboxHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendSoap" type="tns:SendSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="Send/SendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Credit">
+      <soap:operation soapAction="Send/Credit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delivery">
+      <soap:operation soapAction="Send/Delivery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <soap:operation soapAction="Send/GetInbox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendSoap12" type="tns:SendSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSms">
+      <soap12:operation soapAction="Send/SendSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Credit">
+      <soap12:operation soapAction="Send/Credit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delivery">
+      <soap12:operation soapAction="Send/Delivery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <soap12:operation soapAction="Send/GetInbox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendHttpGet" type="tns:SendHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Credit">
+      <http:operation location="/Credit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delivery">
+      <http:operation location="/Delivery" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <http:operation location="/GetInbox" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SendHttpPost" type="tns:SendHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Credit">
+      <http:operation location="/Credit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delivery">
+      <http:operation location="/Delivery" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <http:operation location="/GetInbox" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Send">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">WebService For Send And Recive Sms </wsdl:documentation>
+    <wsdl:port name="SendSoap" binding="tns:SendSoap">
+      <soap:address location="http://sms.pumkin.ir/API/Send.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendSoap12" binding="tns:SendSoap12">
+      <soap12:address location="http://sms.pumkin.ir/API/Send.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendHttpGet" binding="tns:SendHttpGet">
+      <http:address location="http://sms.pumkin.ir/API/Send.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SendHttpPost" binding="tns:SendHttpPost">
+      <http:address location="http://sms.pumkin.ir/API/Send.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
