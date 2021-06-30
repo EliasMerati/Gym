@@ -31,7 +31,7 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <DataGrid x:Name="DgvPeople"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="539" Margin="9,51,0,0" VerticalAlignment="Top" Width="1181" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}">
+        <DataGrid x:Name="DgvPeople"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="539" Margin="9,51,0,0" VerticalAlignment="Top" Width="1181" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}" SelectionChanged="DgvPeople_SelectionChanged">
             <DataGrid.Effect>
                 <DropShadowEffect/>
             </DataGrid.Effect>

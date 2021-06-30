@@ -41,43 +41,58 @@ namespace Gym.Windows
 
         private void edit_click(object sender, RoutedEventArgs e)
         {
-            object item = DgvPeople.SelectedItem;
-            if (item != null)
+            var f = db.People.Any();
+            if (f)
             {
-                Winusers user = new Winusers();
-                int id = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
-                user.peopleID = id;
-                BindGrid();
-                user.ShowDialog();
+                object item = DgvPeople.SelectedItem;
+                if (item != null)
+                {
+                    Winusers user = new Winusers();
+                    int id = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+                    user.peopleID = id;
+                    BindGrid();
+                    user.ShowDialog();
 
+                }
+                else
+                {
+                    MessageBox.Show("لطفا کاربر را انتخاب کنید");
+                }
             }
             else
             {
-                MessageBox.Show("لطفا کاربر را انتخاب کنید");
+                return;
             }
-
-
         }
 
         private void delete_click(object sender, RoutedEventArgs e)
         {
-            object item = DgvPeople.SelectedItem;
-            if (item != null)
+            var f = db.People.Any();
+            if (f)
             {
-                string name = (DgvPeople.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                int id = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
-                if (MessageBox.Show($"آیا از حذف {name} مطمئن هستید؟", "توجه", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                object item = DgvPeople.SelectedItem;
+                if (item != null)
                 {
-                    db.deletePeople(id);
-                    db.SaveChanges();
-                    BindGrid();
-                }
+                    string name = (DgvPeople.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+                    int id = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+                    if (MessageBox.Show($"آیا از حذف {name} مطمئن هستید؟", "توجه", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                    {
+                        db.deletePeople(id);
+                        db.SaveChanges();
+                        BindGrid();
+                    }
 
+                }
+                else
+                {
+                    MessageBox.Show("لطفا کاربری را انتخاب کنید");
+                }
             }
             else
             {
-                MessageBox.Show("لطفا کاربری را انتخاب کنید");
+                return;
             }
+
         }
 
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -139,25 +154,37 @@ namespace Gym.Windows
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             BindGrid();
+            Btninsert.IsEnabled = false;
+            BtnExit.IsEnabled = false;
+            BtnCart.IsEnabled = false;
         }
 
         private void log_click(object sender, RoutedEventArgs e)
         {
-            object item = DgvPeople.SelectedItem;
-            if (item != null)
+            var f = db.People.Any();
+            if (f)
             {
-                WinShowLogs logs = new WinShowLogs();
-                string name = (DgvPeople.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                int id = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
-                logs.Name = name;
-                logs.ID = id;
-                logs.ShowDialog();
-                BindGrid();
+                object item = DgvPeople.SelectedItem;
+                if (item != null)
+                {
+                    WinShowLogs logs = new WinShowLogs();
+                    string name = (DgvPeople.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+                    int id = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+                    logs.Name = name;
+                    logs.ID = id;
+                    logs.ShowDialog();
+                    BindGrid();
+                }
+                else if (item == null)
+                {
+                    MessageBox.Show("لطفا کاربر را انتخاب کنید");
+                }
             }
-            else if (item == null)
+            else
             {
-                MessageBox.Show("لطفا کاربر را انتخاب کنید");
+                return;
             }
+
         }
 
         private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e)
@@ -169,54 +196,72 @@ namespace Gym.Windows
 
         private void newprogram_click(object sender, RoutedEventArgs e)
         {
-            object item = DgvPeople.SelectedItem;
-            try
+            var f = db.People.Any();
+            if (f)
             {
-                if (item != null)
+                object item = DgvPeople.SelectedItem;
+                try
                 {
-                    db.insertprogramnew(int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text),
-                                         DateTime.Now.date());
-                    WinAddNewProgram winAddNewProgram = new WinAddNewProgram();
-                    winAddNewProgram.peopleid = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
-                    winAddNewProgram.name = (DgvPeople.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                    winAddNewProgram.ShowDialog();
-                }
-                else if (item == null)
-                {
-                    MessageBox.Show("لطفا کاربر را انتخاب کنید");
-                }
+                    if (item != null)
+                    {
+                        db.insertprogramnew(int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text),
+                                             DateTime.Now.date());
+                        WinAddNewProgram winAddNewProgram = new WinAddNewProgram();
+                        winAddNewProgram.peopleid = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+                        winAddNewProgram.name = (DgvPeople.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+                        winAddNewProgram.ShowDialog();
+                    }
+                    else if (item == null)
+                    {
+                        MessageBox.Show("لطفا کاربر را انتخاب کنید");
+                    }
 
+                }
+                catch (Exception l)
+                {
+                    MessageBox.Show(l.Message);
+                }
             }
-            catch (Exception l)
+            else
             {
-                MessageBox.Show(l.Message);
+                return;
             }
+
 
         }
 
         private void newperiod_click(object sender, RoutedEventArgs e)
         {
-            object item = DgvPeople.SelectedItem;
-            try
+            var f = db.People.Any();
+            if (f)
             {
-                if (item != null)
+                object item = DgvPeople.SelectedItem;
+                try
                 {
-                    db.InsertPeriod(int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text),
-                    DateTime.Now.date());
-                    WinAddPeriod winAdd = new WinAddPeriod();
-                    winAdd.peopleid = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
-                    winAdd.name = (DgvPeople.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
-                    winAdd.ShowDialog();
+                    if (item != null)
+                    {
+                        db.InsertPeriod(int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text),
+                        DateTime.Now.date());
+                        WinAddPeriod winAdd = new WinAddPeriod();
+                        winAdd.peopleid = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+                        winAdd.name = (DgvPeople.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+                        winAdd.ShowDialog();
+                    }
+                    else if (item == null)
+                    {
+                        MessageBox.Show("لطفا کاربر را انتخاب کنید");
+                    }
                 }
-                else if (item == null)
+                catch (Exception l)
                 {
-                    MessageBox.Show("لطفا کاربر را انتخاب کنید");
+                    MessageBox.Show(l.Message);
                 }
             }
-            catch (Exception l)
+            else
             {
-                MessageBox.Show(l.Message);
+                return;
             }
+
         }
 
         private void Rectangle_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -250,6 +295,23 @@ namespace Gym.Windows
             catch (Exception m)
             {
                 MessageBox.Show(m.Message);
+            }
+        }
+
+        private void DgvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var f = db.People.Any();
+            if (f)
+            {
+                Btninsert.IsEnabled = true;
+                BtnExit.IsEnabled = true;
+                BtnCart.IsEnabled = true;
+            }
+            else
+            {
+                Btninsert.IsEnabled = false;
+                BtnExit.IsEnabled = false;
+                BtnCart.IsEnabled = false;
             }
         }
     }
