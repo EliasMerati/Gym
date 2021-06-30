@@ -177,6 +177,7 @@ namespace Gym.Windows
 
                     db.SaveChanges();
                     MessageBox.Show("ثبت اطلاعات انجام شد");
+                    clear();
                     TxtName.Focus();
                 }
                 else if (peopleID != 0)
@@ -210,6 +211,17 @@ namespace Gym.Windows
             {
                 MessageBox.Show("در ثبت اطلاعات مشکلی بوجود آمده است، لطفا مجددا تلاش نمایید");
             }
+        }
+        void clear()
+        {
+            TxtAddress.Text = string.Empty;
+            Txtcreditor.Text = "0";
+            Txtdeptor.Text = "0";
+            TxtMellicode.Text = string.Empty;
+            TxtName.Text = string.Empty;
+            TxtTel.Text = string.Empty;
+            Cmbtype.SelectedIndex = 0;
+            Cmbtype2.SelectedIndex = 0;
         }
 
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
