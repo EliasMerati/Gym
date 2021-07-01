@@ -82,19 +82,10 @@ namespace Gym.Windows
 
         }
 
-        private void showlog()
-        {
-            DgvLogs.ItemsSource = db.vw_log.Where(y => y.PeopleID == ID).OrderByDescending(y => y.LogDateTimeIN).ToList();
-        }
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void showlog() => DgvLogs.ItemsSource = db.vw_log.Where(y => y.PeopleID == ID).OrderByDescending(y => y.LogDateTimeIN).ToList();
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e) => Close();
 
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
 
 
@@ -130,12 +121,8 @@ namespace Gym.Windows
             winShowPeyment.ShowDialog();
         }
 
-        private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            DgvLogs.ItemsSource = db.Logs.Where(u => u.LogDateTimeIN.Contains(TxtFilter.Text)
-                                               || u.LogDateTimeOut.Contains(TxtFilter.Text)).Where(i => i.PeopleID == ID).ToList();
-
-        }
+        private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e) => DgvLogs.ItemsSource = db.Logs.Where(u => u.LogDateTimeIN.Contains(TxtFilter.Text)
+                                                                                                                      || u.LogDateTimeOut.Contains(TxtFilter.Text)).Where(i => i.PeopleID == ID).ToList();
 
         private void BtnShahrieh_Click(object sender, RoutedEventArgs e)
         {
@@ -151,9 +138,6 @@ namespace Gym.Windows
 
         }
 
-        private void lblname_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void lblname_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
     }
 }

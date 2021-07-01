@@ -19,20 +19,14 @@ namespace Gym.Windows
             InitializeComponent();
         }
         Gym_DBEntities db = new Gym_DBEntities();
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e) => Close();
 
         private void reset()
         {
             TxtPasswordold.Password = string.Empty;
             TxtPasswordnew.Password = string.Empty;
         }
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
         private void Btninsert_Click(object sender, RoutedEventArgs e)
         {

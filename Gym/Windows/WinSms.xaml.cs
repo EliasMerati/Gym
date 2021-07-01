@@ -16,15 +16,9 @@ namespace Gym.Windows
             InitializeComponent();
         }
 
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e) => Close();
 
         private void BtnSendSms_Click(object sender, RoutedEventArgs e)
         {

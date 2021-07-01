@@ -28,20 +28,11 @@ namespace Gym.Windows
             lblname.Text = name;
             TxtproductName.Focus();
         }
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e) => Close();
 
-        private void showItemsInDatagrid()
-        {
-            DgvPeriodItems.ItemsSource = db.PeriodItems.Where(k => k.PeriodID == id).ToList();
-        }
+        private void showItemsInDatagrid() => DgvPeriodItems.ItemsSource = db.PeriodItems.Where(k => k.PeriodID == id).ToList();
         private void Btninsert_Click(object sender, RoutedEventArgs e)
         {
             using (TransactionScope ts = new TransactionScope())
@@ -140,9 +131,6 @@ namespace Gym.Windows
             e.Handled = Regex.IsMatch(e.Text);
         }
 
-        private void BtnPay_Click(object sender, RoutedEventArgs e)
-        {
-            new WinAddPeyment().ShowDialog();
-        }
+        private void BtnPay_Click(object sender, RoutedEventArgs e) => new WinAddPeyment().ShowDialog();
     }
 }

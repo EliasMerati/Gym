@@ -23,20 +23,11 @@ namespace Gym.Windows
             Timer();
         }
 
-        private void timer_Tick(object sender, EventArgs e) //// دستورات ساعت
-        {
-            Lblhour.Content = DateTime.Now.ToString("HH:mm:ss");
-        }
+        private void timer_Tick(object sender, EventArgs e) => Lblhour.Content = DateTime.Now.ToString("HH:mm:ss");
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Environment.Exit(0);
-        }
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e) => Environment.Exit(0);
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -107,10 +98,7 @@ namespace Gym.Windows
             tmr.Start();
         }
 
-        private void img_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void img_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
         private void Btninsert_Click(object sender, RoutedEventArgs e)
         {
@@ -206,10 +194,7 @@ namespace Gym.Windows
             e.Handled = Regex.IsMatch(e.Text);
         }
 
-        private void lbllogin_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            new WinAddLogin().ShowDialog();
-        }
+        private void lbllogin_MouseDown(object sender, MouseButtonEventArgs e) => new WinAddLogin().ShowDialog();
 
     }
 

@@ -23,36 +23,19 @@
 
 
             <telerik:RadMenuItem Header="معرفی اطلاعات" FontWeight="Bold" FontSize="14" Foreground="Black" Margin="0,0,0,0.2">
-                <telerik:RadMenuItem.Icon>
-                    <Image Source="Resources/search.png" Width="35" Height="35" Margin="0,-4,0,-1.8"/>
-                </telerik:RadMenuItem.Icon>
                 <telerik:RadMenuItem Header="ادمین" Click="Admin_click"/>
                 <telerik:RadMenuItem Header="باشگاه" Click="gym_click"/>
-
             </telerik:RadMenuItem>
-            <telerik:RadMenuItem Header="کاربران" FontWeight="Bold" FontSize="14" Foreground="Black" Margin="-3.4,0,3.4,0" Click="users_click">
-                <telerik:RadMenuItem.Icon>
-                    <Image Source="Resources/kuser.png" Width="35" Height="35" Margin="0,-4,0,-1.8"/>
-                </telerik:RadMenuItem.Icon>
-            </telerik:RadMenuItem>
-
-
-            <telerik:RadMenuItem Header="SMS مناسبتی" FontWeight="Bold" FontSize="14" Foreground="Black" Margin="-3.4,0,3.4,0" Click="sms_click">
-                <telerik:RadMenuItem.Icon>
-                    <Image Source="Resources/email_add.png" Width="35" Height="35" Margin="0,-4,0,-1.8"/>
-                </telerik:RadMenuItem.Icon>
-            </telerik:RadMenuItem>
+            <Separator/>
+            <telerik:RadMenuItem Header="کاربران" FontWeight="Bold" FontSize="14" Foreground="Black" Margin="-3.4,0,3.4,0" Click="users_click"/>
+            <Separator/>
+            <telerik:RadMenuItem Header="SMS مناسبتی" FontWeight="Bold" FontSize="14" Foreground="Black" Margin="-3.4,0,3.4,0" Click="sms_click"/>
+            <Separator/>
             <telerik:RadMenuItem Header="تنظیمات " FontWeight="Bold" FontSize="14"  Foreground="Black" Margin="-10.6,0,44.6,0" RenderTransformOrigin="1.521,0.648" Height="39" >
-                <telerik:RadMenuItem.Icon>
-                    <Image Source="Resources/kcmsystem.png" Width="35" Height="35" Margin="0,-4,0,-1.8"/>
-                </telerik:RadMenuItem.Icon>
                 <telerik:RadMenuItem Header="لاگین" Click="login_click"/>
                 <telerik:RadMenuItem Header="تغییر کلمه عبور" Click="pass_click" />
             </telerik:RadMenuItem>
-            <telerik:RadMenuItem Header="تماس با ما" FontWeight="Bold" FontSize="14" Foreground="Black" Margin="-3.4,0,3.4,0" Click="Ma_click" Background="{x:Null}">
-                <telerik:RadMenuItem.Icon>
-                    <Image Source="Resources/star.png" Height="35" Margin="-19,-4,-19,-1.8"/>
-                </telerik:RadMenuItem.Icon>
+            <telerik:RadMenuItem Header="تماس با ما" FontWeight="Bold" FontSize="14" Foreground="Black" Margin="300,0,3.4,0" Click="Ma_click" Background="{x:Null}">
             </telerik:RadMenuItem>
 
 

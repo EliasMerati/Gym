@@ -59,14 +59,8 @@ namespace Gym
             tmr.Start();
         }
 
-        private void timer_Tick(object sender, EventArgs e)//// دستورات ساعت
-        {
-            Lblhour.Content = DateTime.Now.ToString("HH:mm:ss");
-        }
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Environment.Exit(0);
-        }
+        private void timer_Tick(object sender, EventArgs e) => Lblhour.Content = DateTime.Now.ToString("HH:mm:ss");
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e) => Environment.Exit(0);
 
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
@@ -80,40 +74,19 @@ namespace Gym
             }
         }
 
-        private void Image_MouseDown_2(object sender, MouseButtonEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
+        private void Image_MouseDown_2(object sender, MouseButtonEventArgs e) => WindowState = WindowState.Minimized;
 
-        private void Image_MouseDown_3(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Image_MouseDown_3(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void users_click(object sender, Telerik.Windows.RadRoutedEventArgs e)
-        {
-            new WinShowUsers().ShowDialog();
-        }
+        private void users_click(object sender, Telerik.Windows.RadRoutedEventArgs e) => new WinShowUsers().ShowDialog();
 
-        private void gym_click(object sender, RadRoutedEventArgs e)
-        {
-            new WinAddGym().ShowDialog();
-        }
+        private void gym_click(object sender, RadRoutedEventArgs e) => new WinAddGym().ShowDialog();
 
-        private void Admin_click(object sender, RadRoutedEventArgs e)
-        {
-            new WinAddLogin().ShowDialog();
-        }
+        private void Admin_click(object sender, RadRoutedEventArgs e) => new WinAddLogin().ShowDialog();
 
-        private void pass_click(object sender, RadRoutedEventArgs e)
-        {
-            new WinChangePass().ShowDialog();
-        }
+        private void pass_click(object sender, RadRoutedEventArgs e) => new WinChangePass().ShowDialog();
 
-        private void login_click(object sender, RadRoutedEventArgs e)
-        {
-            new WinAddLogin().ShowDialog();
-        }
+        private void login_click(object sender, RadRoutedEventArgs e) => new WinAddLogin().ShowDialog();
 
         private void Window_Activated(object sender, EventArgs e)
         {
@@ -132,106 +105,24 @@ namespace Gym
             }
         }
 
-        private void sms_click(object sender, RadRoutedEventArgs e)
-        {
-            new WinSms().ShowDialog();
-        }
+        private void sms_click(object sender, RadRoutedEventArgs e) => new WinSms().ShowDialog();
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            new WinExcel().ShowDialog();
-        }
+        private void Button_Click(object sender, RoutedEventArgs e) => new WinExcel().ShowDialog();
 
         private void btnBackup_Click(object sender, RoutedEventArgs e)
         {
             Backup_Restore b = new Backup_Restore();
             b.BackUpMyDB();
-
-            //string BackupConString = "data source=.;initial catalog=Gym_DB;integrated security=True;MultipleActiveResultSets=True;";
-
-            //using (SqlConnection con = new SqlConnection(BackupConString))
-            //{
-            //    ServerConnection srvConn = new ServerConnection(con);
-            //    Server srvr = new Server(srvConn);
-
-            //    if (true)
-            //    {
-            //        try
-            //        {
-            //            Backup backupdb = new Backup();
-            //            backupdb.Action = BackupActionType.Database;
-            //            backupdb.Database = "Gym_DB";
-            //            SaveFileDialog savefd = new SaveFileDialog();
-            //            savefd.Filter = "Backup File (*.Bak)|*.Bak";
-            //            savefd.FileName = DateTime.Now.ToString("ddMMyyyy_HHmmss");
-            //            bool? result = savefd.ShowDialog();
-            //            if (result == true)
-            //            {
-
-            //                BackupDeviceItem bkpDevice = new BackupDeviceItem(savefd.FileName, DeviceType.File);
-            //                backupdb.Devices.Add(bkpDevice);
-            //                backupdb.SqlBackup(srvr);
-            //                MessageBox.Show("با موفقیت انجام شد");
-
-            //            }
-            //        }
-            //        catch
-            //        {
-            //            MessageBox.Show("Eror");
-            //        }
-            //    }
-            //}
         }
 
         private void btnRestor_Click(object sender, RoutedEventArgs e)
         {
             Backup_Restore b = new Backup_Restore();
             b.ReStorMyDB();
-
-            //string RestorConString = "data source=.;integrated security=True;MultipleActiveResultSets=True;";
-            //SqlConnection.ClearAllPools();
-            //using (SqlConnection con = new SqlConnection(RestorConString))
-            //{
-            //    ServerConnection srvConn = new ServerConnection(con);
-            //    Server srvr = new Server(srvConn);
-
-            //    if (true)
-            //    {
-            //        try
-            //        {
-            //            Restore restoredb = new Restore();
-            //            restoredb.Action = RestoreActionType.Database;
-            //            restoredb.Database = "Gym_DB";
-            //            OpenFileDialog openfd = new OpenFileDialog();
-            //            openfd.Filter = "Backup File (*.Bak)|*.Bak";
-
-            //            bool? result = openfd.ShowDialog();
-            //            if (result == true)
-            //            {
-            //                BackupDeviceItem bkpDevice = new BackupDeviceItem(openfd.FileName, DeviceType.File);
-
-            //                restoredb.Devices.Add(bkpDevice);
-            //                restoredb.ReplaceDatabase = true;
-            //                restoredb.SqlRestore(srvr);
-            //                MessageBox.Show("با موفقیت بازگردانی شد");
-            //            }
-            //        }
-            //        catch
-            //        {
-            //            MessageBox.Show("Eror");
-            //        }
-            //    }
-            //}
         }
 
-        private void Ma_click(object sender, RadRoutedEventArgs e)
-        {
-            new Us().Show();
-        }
+        private void Ma_click(object sender, RadRoutedEventArgs e) => new Us().Show();
 
-        private void Calc_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("calc.exe");
-        }
+        private void Calc_Click(object sender, RoutedEventArgs e) => System.Diagnostics.Process.Start("calc.exe");
     }
 }

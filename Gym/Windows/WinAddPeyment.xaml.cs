@@ -22,10 +22,8 @@ namespace Gym.Windows
         public int id { get; set; }
         Gym_DBEntities db = new Gym_DBEntities();
         public int cash { get; set; }
-        private void timer_Tick(object sender, EventArgs e)//// دستورات ساعت
-        {
-            LblDate.Content = DateTime.Now.date() + " _ " + DateTime.Now.ToString("HH:mm:ss");
-        }
+        private void timer_Tick(object sender, EventArgs e) => LblDate.Content = DateTime.Now.date() + " _ " + DateTime.Now.ToString("HH:mm:ss");
+
         private void Timer()
         {
             DispatcherTimer tmr = new DispatcherTimer();
@@ -33,15 +31,9 @@ namespace Gym.Windows
             tmr.Interval = new TimeSpan(0, 0, 0, 0, 1000);
             tmr.Start();
         }
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e) => Close();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

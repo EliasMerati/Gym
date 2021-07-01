@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
-using System.IO;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using Microsoft.Win32;
 using System.Windows;
 
@@ -17,13 +12,10 @@ namespace Gym //bayad ba tavajoh be "namespace" barname, tanzim shavad
         private string BackUpConString = @"data source=.\SQLEXPRESS;initial catalog=Gym_DB;integrated security=True;multipleactiveresultsets=True";//Connection String baraye Dastyabi be Data base Asli
         private string ReStoreConString = @"Data Source=.\SQLEXPRESS;Initial Catalog=master;Integrated Security=True";//Connection String baraye dastresi be data base Master
 
-        
+
         //------------------------------------------------------------
 
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
+        public void Dispose() => GC.SuppressFinalize(this);
 
 
 

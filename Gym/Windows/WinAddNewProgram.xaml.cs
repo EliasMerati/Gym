@@ -22,20 +22,11 @@ namespace Gym.Windows
         public int id { get; set; }
         public int peopleid { get; set; }
         public string name { get; set; }
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e) => Close();
 
-        private void showItemsInDatagrid()
-        {
-            DgvProgramItems.ItemsSource = db.NewProgramItem.Where(k=>k.NewProgramID == id  ).ToList();
-        }
+        private void showItemsInDatagrid() => DgvProgramItems.ItemsSource = db.NewProgramItem.Where(k => k.NewProgramID == id).ToList();
         private void Btninsert_Click(object sender, RoutedEventArgs e)
         {
             using (TransactionScope ts = new TransactionScope())

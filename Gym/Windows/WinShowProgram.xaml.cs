@@ -22,15 +22,9 @@ namespace Gym.Windows
         public string name { get; set; }
         public int id { get; set; }
         public int PID { get; set; }
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e) => Close();
 
         private void Show_click(object sender, RoutedEventArgs e)
         {
@@ -58,10 +52,7 @@ namespace Gym.Windows
 
         }
 
-        private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Dgvprogram.ItemsSource = db.vw_newprogram.Where(u => u.PeopleName.Contains(TxtFilter.Text) || u.NewProgramDesc.Contains(TxtFilter.Text) || u.NewProgramDate.Contains(TxtFilter.Text)).ToList(); 
-        }
+        private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e) => Dgvprogram.ItemsSource = db.vw_newprogram.Where(u => u.PeopleName.Contains(TxtFilter.Text) || u.NewProgramDesc.Contains(TxtFilter.Text) || u.NewProgramDate.Contains(TxtFilter.Text)).ToList();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

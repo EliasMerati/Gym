@@ -21,10 +21,7 @@ namespace Gym.Windows
         }
         Gym_DBEntities db = new Gym_DBEntities();
         public int ID { get; set; }
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
         private void cleartextbox()
         {
@@ -32,20 +29,14 @@ namespace Gym.Windows
             TxtTitle.Text = string.Empty;
             TxtFilepath.Text = string.Empty;
         }
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e) => Close();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadData();
             BtnSaveProgram.IsEnabled = false;
         }
-        public void LoadData()
-        {
-            DgvProgram.ItemsSource = db.Vw_Program.Where(n => n.PeopleID == ID).ToList();
-        }
+        public void LoadData() => DgvProgram.ItemsSource = db.Vw_Program.Where(n => n.PeopleID == ID).ToList();
 
         private void BtnSaveProgram_Click_1(object sender, RoutedEventArgs e)
         {

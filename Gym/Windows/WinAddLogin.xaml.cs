@@ -39,10 +39,7 @@ namespace Gym.Windows
                 }
             }
         }
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
         private bool Check()
         {

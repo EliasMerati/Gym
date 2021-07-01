@@ -21,25 +21,13 @@ namespace Gym.Windows
         public int id { get; set; }
         public int pid { get; set; }
         public string name { get; set; }
-        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
 
-        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e) => Close();
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            Dgvperiod.ItemsSource = db.Vw_Period.Where(k => k.peopleID == id).ToList();
-        }
+        private void Window_Loaded(object sender, RoutedEventArgs e) => Dgvperiod.ItemsSource = db.Vw_Period.Where(k => k.peopleID == id).ToList();
 
-        private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Dgvperiod.ItemsSource = db.Vw_Period.Where(u => u.PeopleName.Contains(TxtFilter.Text) || u.Perioddate.Contains(TxtFilter.Text.Trim())|| u.PeriodDesc.Contains(TxtFilter.Text)).ToList();
-        }
+        private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e) => Dgvperiod.ItemsSource = db.Vw_Period.Where(u => u.PeopleName.Contains(TxtFilter.Text) || u.Perioddate.Contains(TxtFilter.Text.Trim()) || u.PeriodDesc.Contains(TxtFilter.Text)).ToList();
 
         private void Show_click(object sender, RoutedEventArgs e)
         {

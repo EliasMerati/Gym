@@ -20,24 +20,13 @@ namespace Gym.Windows
 
         private Gym_DBEntities db = new Gym_DBEntities();
         public int PID { get; set; }
-        private void BindGrid()
-        {
-            DgvPeople.ItemsSource = db.People.OrderByDescending(k => k.PeopleName).ToList();
-        }
-        private void people_click(object sender, RoutedEventArgs e)
-        {
-            new Winusers().ShowDialog();
-        }
+        private void BindGrid() => DgvPeople.ItemsSource = db.People.OrderByDescending(k => k.PeopleName).ToList();
+        private void people_click(object sender, RoutedEventArgs e) => new Winusers().ShowDialog();
 
-        private void period_click(object sender, RoutedEventArgs e)
-        {
-            new WinShowPeriods().ShowDialog();
-        }
+        private void period_click(object sender, RoutedEventArgs e) => new WinShowPeriods().ShowDialog();
 
-        private void program_click(object sender, RoutedEventArgs e)
-        {
-            new WinShowProgram().ShowDialog();
-        }
+        private void program_click(object sender, RoutedEventArgs e) => new WinShowProgram().ShowDialog();
+
 
         private void edit_click(object sender, RoutedEventArgs e)
         {
@@ -95,10 +84,7 @@ namespace Gym.Windows
 
         }
 
-        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            Close();
-        }
+        private void Image_MouseDown_1(object sender, MouseButtonEventArgs e) => Close();
 
         private void Btninsert_Click(object sender, RoutedEventArgs e)
         {
@@ -148,10 +134,7 @@ namespace Gym.Windows
             }
         }
 
-        private void Window_Activated(object sender, EventArgs e)
-        {
-            BindGrid();
-        }
+        private void Window_Activated(object sender, EventArgs e) => BindGrid();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -189,12 +172,9 @@ namespace Gym.Windows
 
         }
 
-        private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            DgvPeople.ItemsSource = db.People.Where(u => u.PeopleAddress.Contains(TxtFilter.Text) || u.PeopleMellicode.Contains(TxtFilter.Text)
-                                                                                                  || u.PeopleMobile.Contains(TxtFilter.Text) ||
-                                                                                                  u.PeopleName.Contains(TxtFilter.Text)).ToList();
-        }
+        private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e) => DgvPeople.ItemsSource = db.People.Where(u => u.PeopleAddress.Contains(TxtFilter.Text) || u.PeopleMellicode.Contains(TxtFilter.Text)
+                                                                                                                                                                         || u.PeopleMobile.Contains(TxtFilter.Text) ||
+                                                                                                                                                                         u.PeopleName.Contains(TxtFilter.Text)).ToList();
 
         private void newprogram_click(object sender, RoutedEventArgs e)
         {
@@ -266,10 +246,7 @@ namespace Gym.Windows
 
         }
 
-        private void Rectangle_MouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+        private void Rectangle_MouseDown_1(object sender, MouseButtonEventArgs e) => DragMove();
 
         private void BtnCart_Click(object sender, RoutedEventArgs e)
         {
