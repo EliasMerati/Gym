@@ -71,6 +71,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GymData.edmx</DependentUpon>
     </Compile>
+    <Compile Include="lastLogOut_Result.cs">
+      <DependentUpon>GymData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <DependentUpon>GymData.tt</DependentUpon>
     </Compile>

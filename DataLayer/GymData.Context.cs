@@ -744,5 +744,23 @@ namespace DataLayer
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertPeriod", idParameter, dateParameter);
         }
+    
+        public virtual ObjectResult<string> lastLogIn(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("lastLogIn", idParameter);
+        }
+    
+        public virtual ObjectResult<lastLogOut_Result> lastLogOut(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<lastLogOut_Result>("lastLogOut", idParameter);
+        }
     }
 }

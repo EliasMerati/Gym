@@ -423,6 +423,12 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Parameter Name="datein" Type="nvarchar" Mode="In" />
           <Parameter Name="dateout" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="lastLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="lastLogOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <Function Name="SaveProgram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="name" Type="nvarchar" Mode="In" />
@@ -1111,6 +1117,12 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           </FunctionImport>
           <EntitySet Name="vw_newprogram" EntityType="Gym_DBModel.vw_newprogram" />
           <EntitySet Name="Vw_Period" EntityType="Gym_DBModel.Vw_Period" />
+          <FunctionImport Name="lastLogIn" ReturnType="Collection(String)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="lastLogOut" ReturnType="Collection(Gym_DBModel.lastLogOut_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="findProgramID_Result">
           <Property Type="Int32" Name="NewProgramID" Nullable="false" />
@@ -1202,6 +1214,10 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Property Name="peopleID" Type="Int32" Nullable="false" />
           <Property Name="PeopleName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="lastLogOut_Result">
+          <Property Type="String" Name="LogDateTimeIN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LogDateTimeOut" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1488,6 +1504,15 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="lastLogIn" FunctionName="Gym_DBModel.Store.lastLogIn" />
+          <FunctionImportMapping FunctionImportName="lastLogOut" FunctionName="Gym_DBModel.Store.lastLogOut">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.lastLogOut_Result">
+                <ScalarProperty Name="LogDateTimeIN" ColumnName="LogDateTimeIN" />
+                <ScalarProperty Name="LogDateTimeOut" ColumnName="LogDateTimeOut" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -114,6 +114,7 @@ namespace Gym.Windows
                     };
                     db.Logs.Add(log);
                     db.SaveChanges();
+                    check();
                 }
             }
             catch
@@ -133,6 +134,7 @@ namespace Gym.Windows
                     string date = DateTime.Now.date() + "_" + $"{DateTime.Now:HH:mm:ss}";
                     db.ExitPersonDate(id, date);
                     db.SaveChanges();
+                    check();
                 }
                 else if (item == null)
                 {
@@ -298,21 +300,47 @@ namespace Gym.Windows
             }
         }
 
-        private void DgvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DgvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e) => check();
+
+        void check()
         {
             var f = db.People.Any();
             if (f)
             {
-                Btninsert.IsEnabled = true;
-                BtnExit.IsEnabled = true;
-                BtnCart.IsEnabled = true;
+                var item = DgvPeople.SelectedItem;
+                int LID = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+                if (item != null)
+                {
+                    var h = db.lastLogOut(LID).ToList();
+                    if (h[0].LogDateTimeOut != null && h[0].LogDateTimeIN != null)
+                    {
+                        Btninsert.IsEnabled = true;
+                        BtnExit.IsEnabled = false;
+                    }
+                    else if (h[0].LogDateTimeOut == null && h[0].LogDateTimeIN != null)
+                    {
+                        Btninsert.IsEnabled = false;
+                        BtnExit.IsEnabled = true;
+                    }
+                    else
+                    {
+                        Btninsert.IsEnabled = false;
+                        BtnExit.IsEnabled = false;
+                        BtnCart.IsEnabled = false;
+                    }
+                    BtnCart.IsEnabled = true;
+                }
+                else
+                {
+                    return;
+                }
+
             }
             else
             {
-                Btninsert.IsEnabled = false;
-                BtnExit.IsEnabled = false;
-                BtnCart.IsEnabled = false;
+                return;
             }
         }
+
     }
 }
