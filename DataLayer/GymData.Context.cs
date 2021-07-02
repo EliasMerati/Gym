@@ -762,5 +762,14 @@ namespace DataLayer
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<lastLogOut_Result>("lastLogOut", idParameter);
         }
+    
+        public virtual ObjectResult<KartOzviat_Result> KartOzviat(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KartOzviat_Result>("KartOzviat", idParameter);
+        }
     }
 }

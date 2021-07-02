@@ -281,41 +281,46 @@ namespace Gym.Windows
 
         void check()
         {
-            var f = db.People.Any();
-            if (f)
+            try
             {
+                var f = db.People.Any();
                 var item = DgvPeople.SelectedItem;
-                int LID = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
-                if (item != null)
+                if (f)
                 {
-                    var h = db.lastLogOut(LID).ToList();
-                    if (h[0].LogDateTimeOut != null && h[0].LogDateTimeIN != null)
+                    if (item != null)
                     {
-                        Btninsert.IsEnabled = true;
-                        BtnExit.IsEnabled = false;
+                        int LID = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+                        var h = db.lastLogOut(LID).ToList();
+                        if (h[0].LogDateTimeOut != null && h[0].LogDateTimeIN != null)
+                        {
+                            Btninsert.IsEnabled = true;
+                            BtnExit.IsEnabled = false;
+                            BtnCart.IsEnabled = true;
+                        }
+                        else if (h[0].LogDateTimeOut == null && h[0].LogDateTimeIN != null)
+                        {
+                            Btninsert.IsEnabled = false;
+                            BtnExit.IsEnabled = true;
+                            BtnCart.IsEnabled = true;
+                        }
+                        else
+                        {
+                            Btninsert.IsEnabled = false;
+                            BtnExit.IsEnabled = false;
+                            BtnCart.IsEnabled = false;
+                        }
+                        
                     }
-                    else if (h[0].LogDateTimeOut == null && h[0].LogDateTimeIN != null)
-                    {
-                        Btninsert.IsEnabled = false;
-                        BtnExit.IsEnabled = true;
-                    }
-                    else
-                    {
-                        Btninsert.IsEnabled = false;
-                        BtnExit.IsEnabled = false;
-                        BtnCart.IsEnabled = false;
-                    }
-                    BtnCart.IsEnabled = true;
+
                 }
                 else
                 {
                     return;
                 }
-
             }
-            else
+            catch 
             {
-                return;
+                MessageBox.Show("لطفا در مکانی دیگر کلیک کنید");
             }
         }
 

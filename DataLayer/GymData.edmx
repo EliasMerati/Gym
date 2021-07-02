@@ -423,6 +423,9 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Parameter Name="datein" Type="nvarchar" Mode="In" />
           <Parameter Name="dateout" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="KartOzviat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <Function Name="lastLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -1123,6 +1126,9 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <FunctionImport Name="lastLogOut" ReturnType="Collection(Gym_DBModel.lastLogOut_Result)">
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="KartOzviat" ReturnType="Collection(Gym_DBModel.KartOzviat_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="findProgramID_Result">
           <Property Type="Int32" Name="NewProgramID" Nullable="false" />
@@ -1217,6 +1223,19 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
         <ComplexType Name="lastLogOut_Result">
           <Property Type="String" Name="LogDateTimeIN" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="LogDateTimeOut" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="KartOzviat_Result">
+          <Property Type="Int32" Name="PeopleID" Nullable="false" />
+          <Property Type="String" Name="PeopleName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="PeopleMobile" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PeopleAddress" Nullable="true" />
+          <Property Type="String" Name="PeopleMellicode" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PeopleType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PeopleType2" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="PeopleDeptor" Nullable="false" />
+          <Property Type="Int32" Name="PeopleCreditor" Nullable="false" />
+          <Property Type="Binary" Name="PeopleLogo" Nullable="true" />
+          <Property Type="Guid" Name="PicID" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1510,6 +1529,23 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
               <ComplexTypeMapping TypeName="Gym_DBModel.lastLogOut_Result">
                 <ScalarProperty Name="LogDateTimeIN" ColumnName="LogDateTimeIN" />
                 <ScalarProperty Name="LogDateTimeOut" ColumnName="LogDateTimeOut" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="KartOzviat" FunctionName="Gym_DBModel.Store.KartOzviat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.KartOzviat_Result">
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="PeopleMobile" ColumnName="PeopleMobile" />
+                <ScalarProperty Name="PeopleAddress" ColumnName="PeopleAddress" />
+                <ScalarProperty Name="PeopleMellicode" ColumnName="PeopleMellicode" />
+                <ScalarProperty Name="PeopleType" ColumnName="PeopleType" />
+                <ScalarProperty Name="PeopleType2" ColumnName="PeopleType2" />
+                <ScalarProperty Name="PeopleDeptor" ColumnName="PeopleDeptor" />
+                <ScalarProperty Name="PeopleCreditor" ColumnName="PeopleCreditor" />
+                <ScalarProperty Name="PeopleLogo" ColumnName="PeopleLogo" />
+                <ScalarProperty Name="PicID" ColumnName="PicID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
