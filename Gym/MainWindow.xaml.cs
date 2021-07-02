@@ -11,7 +11,7 @@ using Microsoft.Win32;
 using Telerik.Windows;
 using Microsoft.SqlServer.Management.Smo;
 using Microsoft.SqlServer.Management.Common;
-
+using System.Reflection;
 
 namespace Gym
 {
@@ -47,7 +47,7 @@ namespace Gym
 
                 }
             }
-
+            LblVersion.Content = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             LblDate.Content = DateTime.Now.date();
             LblName.Content = Public.user;
         }

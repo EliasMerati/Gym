@@ -33,7 +33,7 @@
         </Label>
         <Label Content="..." x:Name="LblName" FontFamily="A Hamase"  HorizontalAlignment="Right" Margin="0,0,94,3" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" Width="246" FontSize="16" Background="Transparent" Foreground="#FFFFC712" />
         <Label Content=": نام کاربر"  FontFamily="A Hamase"  HorizontalAlignment="Right" Margin="0,0,10,3" VerticalAlignment="Bottom" Width="84" FontSize="16" Foreground="#FFFFE9B8" />
-        <telerik:RadMenu HorizontalAlignment="Stretch" Margin="0,53,5,0" VerticalAlignment="Top" FlowDirection="RightToLeft" Foreground="Black"  RenderTransformOrigin="0.5,0.5" Background="#FFA39100" BorderBrush="#FFEF002A" Height="39">
+        <telerik:RadMenu HorizontalAlignment="Stretch" Margin="0,53,5,0" VerticalAlignment="Top" FlowDirection="RightToLeft" Foreground="Black"  RenderTransformOrigin="0.5,0.5" Background="#FFF2FA79" BorderBrush="#FFEF002A" Height="39">
             <telerik:RadMenu.Effect>
                 <DropShadowEffect/>
             </telerik:RadMenu.Effect>
@@ -57,7 +57,7 @@
 
 
         </telerik:RadMenu>
-        <Button Name="btnBackup" Content="نسخه ی پشتیبان از دیتابیس" HorizontalAlignment="Left" Margin="47,436,0,0" VerticalAlignment="Top" Width="179" BorderBrush="Red" Foreground="#FFFFE300" Click="btnBackup_Click">
+        <Button Name="btnBackup" Content="(Backup) نسخه ی پشتیبان" HorizontalAlignment="Left" Margin="194,0,0,209" VerticalAlignment="Bottom" Width="179" BorderBrush="Red" Foreground="#FFFFE300" Click="btnBackup_Click" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -65,7 +65,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="بازگردانی دیتابیس" Name="btnRestor" HorizontalAlignment="Left" Margin="47,485,0,0" VerticalAlignment="Top" Width="179" BorderBrush="#FF9E00FF" Foreground="#FFFFF212" Click="btnRestor_Click">
+        <Button Content=" (Restor)بازگردانی" Name="btnRestor" HorizontalAlignment="Left" Margin="10,0,0,209" VerticalAlignment="Bottom" Width="179" BorderBrush="#FF9E00FF" Foreground="#FFFFF212" Click="btnRestor_Click" FontWeight="Bold">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -73,12 +73,12 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="10,256,0,0" TextWrapping="Wrap" Text="لطفا قبل از تعویض ویندوز یا هر کاری که احتمال از بین رفتن اطلاعات باشد ، نسخه ی پشتیبان از دیتابیس در درایوی غیر از ویندوز داشته باشید و بعد از نصب ویندوز از طریق دکمه ی بازگردانی دیتابیس آن را بازگردانی کنید." FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="298">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="30,0,0,291" TextWrapping="Wrap" Text="لطفا قبل از تعویض ویندوز یا هر کاری که احتمال از بین رفتن اطلاعات باشد ، نسخه ی پشتیبان از دیتابیس در درایوی غیر از ویندوز داشته باشید و بعد از نصب ویندوز از طریق دکمه ی بازگردانی دیتابیس آن را بازگردانی کنید." FlowDirection="RightToLeft" VerticalAlignment="Bottom" Foreground="#FFF1ECC5" FontSize="14" Width="298">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <Button Content="نرم افزار اکسل" HorizontalAlignment="Left" Margin="23,60,0,0" VerticalAlignment="Top" Width="115" BorderBrush="#FF00FF53" Foreground="#FF12F2FF" Click="Button_Click">
+        <Button Content="نرم افزار اکسل" HorizontalAlignment="Left" Margin="23,60,0,0" VerticalAlignment="Top" Width="115" BorderBrush="#FF00FF53" Foreground="#FF80FF12" Click="Button_Click">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -89,8 +89,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Image HorizontalAlignment="Left" Source="Resources/Alpha Dista Icon 050901.png" Height="100" Margin="313,292,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="10,375,0,0" TextWrapping="Wrap" Text="نکته: حتما برای ذخیره ی نسخه ی پشتیبان درایوی غیر از ویندوز را انتخاب کنید" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="298">
+        <Image HorizontalAlignment="Left" Source="Resources/Alpha Dista Icon 050901.png" Height="130" Margin="333,0,0,258" VerticalAlignment="Bottom" Width="130"/>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="30,0,0,240" TextWrapping="Wrap" Text="نکته: حتما برای ذخیره ی نسخه ی پشتیبان درایوی غیر از ویندوز را انتخاب کنید" FlowDirection="RightToLeft" VerticalAlignment="Bottom" Foreground="#FFF1ECC5" FontSize="14" Width="298">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
@@ -106,6 +106,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Label Content="..." x:Name="LblVersion" FontFamily="A Hamase"  HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Width="78" FontSize="18" Background="Transparent" Foreground="#FF00F1FF" />
+        <Label Content=":نسخه ی نرم افزار"  FontFamily="A Hamase"  HorizontalAlignment="Left" Margin="93,0,0,3" VerticalAlignment="Bottom" Width="113" Foreground="#FFFFFD00" />
 
 
     </Grid>
