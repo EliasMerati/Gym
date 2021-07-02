@@ -21,6 +21,18 @@ namespace Gym.Windows
         {
             InitializeComponent();
             Timer();
+            WinLock winLock = new WinLock();
+            Hide();
+            winLock.ShowDialog();
+            if (winLock.DialogResult == true)
+            {
+                Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("با تشکر از حسن انتخاب شما", "پیام تشکر", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                Environment.Exit(0);
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e) => Lblhour.Content = DateTime.Now.ToString("HH:mm:ss");
