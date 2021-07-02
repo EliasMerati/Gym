@@ -39,8 +39,8 @@ namespace Gym.Windows
                     Winusers user = new Winusers();
                     int id = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
                     user.peopleID = id;
-                    BindGrid();
                     user.ShowDialog();
+                    BindGrid();
 
                 }
                 else
