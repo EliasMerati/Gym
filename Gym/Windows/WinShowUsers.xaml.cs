@@ -284,33 +284,43 @@ namespace Gym.Windows
             try
             {
                 var f = db.People.Any();
+                var g = db.Logs.Any();
                 var item = DgvPeople.SelectedItem;
                 if (f)
                 {
-                    if (item != null)
+                    if (g)
                     {
-                        int LID = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
-                        var h = db.lastLogOut(LID).ToList();
-                        if (h[0].LogDateTimeOut != null && h[0].LogDateTimeIN != null)
+                        if (item != null)
+                        {
+                            int LID = int.Parse((DgvPeople.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+                            var h = db.lastLogOut(LID).ToList();
+                            if (h[0].LogDateTimeOut != null && h[0].LogDateTimeIN != null)
+                            {
+                                Btninsert.IsEnabled = true;
+                                BtnExit.IsEnabled = false;
+                                BtnCart.IsEnabled = true;
+                            }
+                            else if (h[0].LogDateTimeOut == null && h[0].LogDateTimeIN != null)
+                            {
+                                Btninsert.IsEnabled = false;
+                                BtnExit.IsEnabled = true;
+                                BtnCart.IsEnabled = true;
+                            }
+                        }
+                        else
                         {
                             Btninsert.IsEnabled = true;
                             BtnExit.IsEnabled = false;
                             BtnCart.IsEnabled = true;
                         }
-                        else if (h[0].LogDateTimeOut == null && h[0].LogDateTimeIN != null)
-                        {
-                            Btninsert.IsEnabled = false;
-                            BtnExit.IsEnabled = true;
-                            BtnCart.IsEnabled = true;
-                        }
-                        else
-                        {
-                            Btninsert.IsEnabled = false;
-                            BtnExit.IsEnabled = false;
-                            BtnCart.IsEnabled = false;
-                        }
-                        
                     }
+                    else
+                    {
+                        Btninsert.IsEnabled = true;
+                        BtnExit.IsEnabled = false;
+                        BtnCart.IsEnabled = true;
+                    }
+
 
                 }
                 else

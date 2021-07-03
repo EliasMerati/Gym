@@ -59,19 +59,19 @@ namespace Gym.Windows
                         db.updatedeptor1(id, int.Parse(TxtPey.Text.Trim()));
                         db.SaveChanges();
                     }
-                    else if (f[0].PeopleCreditor < 0 && Cmbtype2.Text == "درج در بدهی ها")
+                    else if (Cmbtype2.Text == "درج در بدهی ها" && f[0].PeopleCreditor > int.Parse(TxtPey.Text))
                     {
                         db.updatedeptor3(id, int.Parse(TxtPey.Text.Trim()));
                         db.SaveChanges();
                     }
-                    else if (f[0].PeopleDeptor > 0 && Cmbtype2.Text == "نقدی" && f[0].PeopleCreditor == 0)
+                    else if (f[0].PeopleDeptor > 0 && Cmbtype2.Text == "نقدی" )
                     {
                         db.updatedeptor4(id, int.Parse(TxtPey.Text.Trim()));
                         db.SaveChanges();
                     }
-                    else if (Cmbtype2.Text == "نقدی" && f[0].PeopleCreditor > 0)
+                    else if (f[0].PeopleDeptor >int.Parse(TxtPey.Text) && Cmbtype2.Text == "نقدی")
                     {
-                        db.Updatedeptor5(id, int.Parse(TxtPey.Text.Trim()));
+                        db.updatedeptor4(id, int.Parse(TxtPey.Text.Trim()));
                         db.SaveChanges();
                     }
                     else if (Cmbtype2.Text == "تسویه حساب")

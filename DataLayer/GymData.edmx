@@ -461,10 +461,6 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="deptor" Type="int" Mode="In" />
         </Function>
-        <Function Name="Updatedeptor5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="deptor" Type="int" Mode="In" />
-        </Function>
         <Function Name="Updatedeptor6" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -1585,7 +1581,6 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <FunctionImportMapping FunctionImportName="updatedeptor2" FunctionName="Gym_DBModel.Store.updatedeptor2" />
           <FunctionImportMapping FunctionImportName="updatedeptor3" FunctionName="Gym_DBModel.Store.updatedeptor3" />
           <FunctionImportMapping FunctionImportName="updatedeptor4" FunctionName="Gym_DBModel.Store.updatedeptor4" />
-          <FunctionImportMapping FunctionImportName="Updatedeptor5" FunctionName="Gym_DBModel.Store.Updatedeptor5" />
           <FunctionImportMapping FunctionImportName="Updatedeptor6" FunctionName="Gym_DBModel.Store.Updatedeptor6" />
           <FunctionImportMapping FunctionImportName="UpdateGym1" FunctionName="Gym_DBModel.Store.UpdateGym1" />
           <FunctionImportMapping FunctionImportName="UpdateGym2" FunctionName="Gym_DBModel.Store.UpdateGym2" />
