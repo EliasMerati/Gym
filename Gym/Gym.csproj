@@ -452,13 +452,13 @@
     <Resource Include="6660628_preview.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
-      <Project>{2ed129dd-aba5-4d51-86ca-2e83515161da}</Project>
-      <Name>DataLayer</Name>
-    </ProjectReference>
+    <Resource Include="Resources\Lock.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Lock.png" />
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{907a8901-0eff-4087-928f-01bcc4c93543}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

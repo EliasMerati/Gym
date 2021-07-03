@@ -25,7 +25,12 @@ namespace Gym.Windows
 
         private void Image_MouseDown_1(object sender, MouseButtonEventArgs e) => Close();
 
-        private void Window_Loaded(object sender, RoutedEventArgs e) => Dgvperiod.ItemsSource = db.Vw_Period.Where(k => k.peopleID == id).ToList();
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Dgvperiod.ItemsSource = db.Vw_Period.Where(k => k.peopleID == id).ToList();
+            lblname.Text = name;
+        }
+             
 
         private void TxtFilter_TextChanged(object sender, TextChangedEventArgs e) => Dgvperiod.ItemsSource = db.Vw_Period.Where(u => u.PeopleName.Contains(TxtFilter.Text) || u.Perioddate.Contains(TxtFilter.Text.Trim()) || u.PeriodDesc.Contains(TxtFilter.Text)).ToList();
 

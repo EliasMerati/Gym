@@ -106,7 +106,7 @@ namespace Gym.Windows
                 /////////////////////////////////////////////////////////////دستورات رجیستری
                 RegistryKey Afra = Registry.CurrentUser.CreateSubKey("software\\Afra");
                 string s = BCrypt.Net.BCrypt.HashString(txtLock.Text, 14);
-                Afra.SetValue("usernameregister", s);
+                Afra.SetValue("GymSerial", s);
                 DialogResult = true;
             }
             else
@@ -121,7 +121,7 @@ namespace Gym.Windows
             txtLock.Focus();
             ahamase();
             RegistryKey Afra = Registry.CurrentUser.CreateSubKey("software\\Afra");
-            w = (string)Afra.GetValue("usernameregister");
+            w = (string)Afra.GetValue("GymSerial");
             k = sc.IAmBook(txtserial.Text);
             if (w != null)
             {

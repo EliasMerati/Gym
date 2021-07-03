@@ -34,16 +34,29 @@ namespace DataLayer
         public virtual DbSet<NewProgramItem> NewProgramItem { get; set; }
         public virtual DbSet<Payment> Payment { get; set; }
         public virtual DbSet<People> People { get; set; }
+        public virtual DbSet<Period> Period { get; set; }
+        public virtual DbSet<PeriodItems> PeriodItems { get; set; }
         public virtual DbSet<Program> Program { get; set; }
         public virtual DbSet<Shahrieh> Shahrieh { get; set; }
         public virtual DbSet<vw_log> vw_log { get; set; }
+        public virtual DbSet<vw_newprogram> vw_newprogram { get; set; }
+        public virtual DbSet<Vw_Period> Vw_Period { get; set; }
         public virtual DbSet<vw_Peyment> vw_Peyment { get; set; }
         public virtual DbSet<Vw_Program> Vw_Program { get; set; }
         public virtual DbSet<vw_shahrieh> vw_shahrieh { get; set; }
-        public virtual DbSet<PeriodItems> PeriodItems { get; set; }
-        public virtual DbSet<Period> Period { get; set; }
-        public virtual DbSet<vw_newprogram> vw_newprogram { get; set; }
-        public virtual DbSet<Vw_Period> Vw_Period { get; set; }
+    
+        public virtual int ClosePeriod(Nullable<int> id, string desc)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var descParameter = desc != null ?
+                new ObjectParameter("desc", desc) :
+                new ObjectParameter("desc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClosePeriod", idParameter, descParameter);
+        }
     
         public virtual int closetheprogram(Nullable<int> id, string desc)
         {
@@ -328,6 +341,40 @@ namespace DataLayer
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertPeople2", nameParameter, mobileParameter, addressParameter, mellicodeParameter, typeParameter, type2Parameter, deptorParameter, creditorParameter);
         }
     
+        public virtual int InsertPeriod(Nullable<int> id, string date)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertPeriod", idParameter, dateParameter);
+        }
+    
+        public virtual int InsertPeriodItem(Nullable<int> id, string product, string count, Nullable<int> fee)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var productParameter = product != null ?
+                new ObjectParameter("Product", product) :
+                new ObjectParameter("Product", typeof(string));
+    
+            var countParameter = count != null ?
+                new ObjectParameter("count", count) :
+                new ObjectParameter("count", typeof(string));
+    
+            var feeParameter = fee.HasValue ?
+                new ObjectParameter("fee", fee) :
+                new ObjectParameter("fee", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertPeriodItem", idParameter, productParameter, countParameter, feeParameter);
+        }
+    
         public virtual int InsertPersonDate(Nullable<int> id, string date)
         {
             var idParameter = id.HasValue ?
@@ -388,6 +435,24 @@ namespace DataLayer
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("insertshahriehdate", idParameter, dateinParameter, dateoutParameter);
         }
     
+        public virtual ObjectResult<KartOzviat_Result> KartOzviat(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KartOzviat_Result>("KartOzviat", idParameter);
+        }
+    
+        public virtual ObjectResult<lastLogOut_Result> lastLogOut(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<lastLogOut_Result>("lastLogOut", idParameter);
+        }
+    
         public virtual int SaveProgram(Nullable<int> id, string name, string title, byte[] binary)
         {
             var idParameter = id.HasValue ?
@@ -421,6 +486,24 @@ namespace DataLayer
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ShowPeopleByID_Result>("ShowPeopleByID", idParameter);
+        }
+    
+        public virtual ObjectResult<ShowPeriods_Result> ShowPeriods(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ShowPeriods_Result>("ShowPeriods", idParameter);
+        }
+    
+        public virtual ObjectResult<ShowProgram_Result> ShowProgram(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ShowProgram_Result>("ShowProgram", idParameter);
         }
     
         public virtual int updatedeptor1(Nullable<int> id, Nullable<int> deptor)
@@ -696,98 +779,6 @@ namespace DataLayer
                 new ObjectParameter("type2", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdatePeople2", idParameter, nameParameter, mobileParameter, addressParameter, mellicodeParameter, typeParameter, type2Parameter);
-        }
-    
-        public virtual int InsertPeriodItem(Nullable<int> id, string product, string count, Nullable<int> fee)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            var productParameter = product != null ?
-                new ObjectParameter("Product", product) :
-                new ObjectParameter("Product", typeof(string));
-    
-            var countParameter = count != null ?
-                new ObjectParameter("count", count) :
-                new ObjectParameter("count", typeof(string));
-    
-            var feeParameter = fee.HasValue ?
-                new ObjectParameter("fee", fee) :
-                new ObjectParameter("fee", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertPeriodItem", idParameter, productParameter, countParameter, feeParameter);
-        }
-    
-        public virtual int ClosePeriod(Nullable<int> id, string desc)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            var descParameter = desc != null ?
-                new ObjectParameter("desc", desc) :
-                new ObjectParameter("desc", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ClosePeriod", idParameter, descParameter);
-        }
-    
-        public virtual int InsertPeriod(Nullable<int> id, string date)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            var dateParameter = date != null ?
-                new ObjectParameter("date", date) :
-                new ObjectParameter("date", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertPeriod", idParameter, dateParameter);
-        }
-    
-        public virtual ObjectResult<string> lastLogIn(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("lastLogIn", idParameter);
-        }
-    
-        public virtual ObjectResult<lastLogOut_Result> lastLogOut(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<lastLogOut_Result>("lastLogOut", idParameter);
-        }
-    
-        public virtual ObjectResult<KartOzviat_Result> KartOzviat(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KartOzviat_Result>("KartOzviat", idParameter);
-        }
-    
-        public virtual ObjectResult<ShowProgram_Result> ShowProgram(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ShowProgram_Result>("ShowProgram", idParameter);
-        }
-    
-        public virtual ObjectResult<ShowPeriods_Result> ShowPeriods(Nullable<int> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ShowPeriods_Result>("ShowPeriods", idParameter);
         }
     }
 }

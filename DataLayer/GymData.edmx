@@ -426,9 +426,6 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
         <Function Name="KartOzviat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
-        <Function Name="lastLogIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-        </Function>
         <Function Name="lastLogOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
@@ -723,9 +720,29 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <NavigationProperty Name="Logs" Relationship="Self.FK_Log_People" FromRole="People" ToRole="Logs" />
           <NavigationProperty Name="NewProgram" Relationship="Self.FK_NewProgram_people" FromRole="People" ToRole="NewProgram" />
           <NavigationProperty Name="Payment" Relationship="Self.FK_Payment_People" FromRole="People" ToRole="Payment" />
+          <NavigationProperty Name="Period" Relationship="Self.FK_Period_People" FromRole="People" ToRole="Period" />
           <NavigationProperty Name="Program" Relationship="Self.FK_Program_People" FromRole="People" ToRole="Program" />
           <NavigationProperty Name="Shahrieh" Relationship="Self.FK_Shahrieh_People" FromRole="People" ToRole="Shahrieh" />
-          <NavigationProperty Name="Period" Relationship="Gym_DBModel.FK_Period_People" FromRole="People" ToRole="Period" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+          </Key>
+          <Property Name="PeriodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Perioddate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeriodDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="peopleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="People" Relationship="Self.FK_Period_People" FromRole="Period" ToRole="People" />
+        </EntityType>
+        <EntityType Name="PeriodItems">
+          <Key>
+            <PropertyRef Name="PeriodItemID" />
+          </Key>
+          <Property Name="PeriodItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeriodID" Type="Int32" Nullable="false" />
+          <Property Name="PeriodItemProduct" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodItemCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodItemFee" Type="Int32" />
         </EntityType>
         <EntityType Name="Program">
           <Key>
@@ -768,6 +785,32 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Property Name="PeopleCreditor" Type="Int32" Nullable="false" />
           <Property Name="PeopleLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="PicID" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vw_newprogram">
+          <Key>
+            <PropertyRef Name="PeopleName" />
+            <PropertyRef Name="NewProgramID" />
+            <PropertyRef Name="NewProgramDate" />
+            <PropertyRef Name="PeopleID" />
+          </Key>
+          <Property Name="PeopleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewProgramID" Type="Int32" Nullable="false" />
+          <Property Name="NewProgramDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeopleID" Type="Int32" Nullable="false" />
+          <Property Name="NewProgramDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vw_Period">
+          <Key>
+            <PropertyRef Name="PeriodID" />
+            <PropertyRef Name="Perioddate" />
+            <PropertyRef Name="peopleID" />
+            <PropertyRef Name="PeopleName" />
+          </Key>
+          <Property Name="PeriodID" Type="Int32" Nullable="false" />
+          <Property Name="Perioddate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PeriodDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="peopleID" Type="Int32" Nullable="false" />
+          <Property Name="PeopleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="vw_Peyment">
           <Key>
@@ -856,6 +899,18 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Period_People">
+          <End Role="People" Type="Self.People" Multiplicity="1" />
+          <End Role="Period" Type="Self.Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="People">
+              <PropertyRef Name="PeopleID" />
+            </Principal>
+            <Dependent Role="Period">
+              <PropertyRef Name="peopleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Program_People">
           <End Role="People" Type="Self.People" Multiplicity="0..1" />
           <End Role="Program" Type="Self.Program" Multiplicity="*" />
@@ -888,9 +943,13 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <EntitySet Name="NewProgramItem" EntityType="Self.NewProgramItem" />
           <EntitySet Name="Payment" EntityType="Self.Payment" />
           <EntitySet Name="People" EntityType="Self.People" />
+          <EntitySet Name="Period" EntityType="Self.Period" />
+          <EntitySet Name="PeriodItems" EntityType="Self.PeriodItems" />
           <EntitySet Name="Program" EntityType="Self.Program" />
           <EntitySet Name="Shahrieh" EntityType="Self.Shahrieh" />
           <EntitySet Name="vw_log" EntityType="Self.vw_log" />
+          <EntitySet Name="vw_newprogram" EntityType="Self.vw_newprogram" />
+          <EntitySet Name="Vw_Period" EntityType="Self.Vw_Period" />
           <EntitySet Name="vw_Peyment" EntityType="Self.vw_Peyment" />
           <EntitySet Name="Vw_Program" EntityType="Self.Vw_Program" />
           <EntitySet Name="vw_shahrieh" EntityType="Self.vw_shahrieh" />
@@ -910,6 +969,10 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
             <End Role="People" EntitySet="People" />
             <End Role="Payment" EntitySet="Payment" />
           </AssociationSet>
+          <AssociationSet Name="FK_Period_People" Association="Self.FK_Period_People">
+            <End Role="People" EntitySet="People" />
+            <End Role="Period" EntitySet="Period" />
+          </AssociationSet>
           <AssociationSet Name="FK_Program_People" Association="Self.FK_Program_People">
             <End Role="People" EntitySet="People" />
             <End Role="Program" EntitySet="Program" />
@@ -918,6 +981,10 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
             <End Role="People" EntitySet="People" />
             <End Role="Shahrieh" EntitySet="Shahrieh" />
           </AssociationSet>
+          <FunctionImport Name="ClosePeriod">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="closetheprogram">
             <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="desc" Mode="In" Type="String" />
@@ -999,6 +1066,16 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
             <Parameter Name="deptor" Mode="In" Type="Int32" />
             <Parameter Name="creditor" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="InsertPeriod">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertPeriodItem">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Product" Mode="In" Type="String" />
+            <Parameter Name="count" Mode="In" Type="String" />
+            <Parameter Name="fee" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="InsertPersonDate">
             <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="date" Mode="In" Type="String" />
@@ -1017,6 +1094,12 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
             <Parameter Name="datein" Mode="In" Type="String" />
             <Parameter Name="dateout" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="KartOzviat" ReturnType="Collection(Gym_DBModel.KartOzviat_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="lastLogOut" ReturnType="Collection(Gym_DBModel.lastLogOut_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="SaveProgram">
             <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="name" Mode="In" Type="String" />
@@ -1025,6 +1108,12 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           </FunctionImport>
           <FunctionImport Name="ShowPeople" ReturnType="Collection(Gym_DBModel.ShowPeople_Result)" />
           <FunctionImport Name="ShowPeopleByID" ReturnType="Collection(Gym_DBModel.ShowPeopleByID_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ShowPeriods" ReturnType="Collection(Gym_DBModel.ShowPeriods_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ShowProgram" ReturnType="Collection(Gym_DBModel.ShowProgram_Result)">
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="updatedeptor1">
@@ -1104,49 +1193,29 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
             <Parameter Name="type" Mode="In" Type="String" />
             <Parameter Name="type2" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="InsertPeriodItem">
-            <Parameter Name="id" Mode="In" Type="Int32" />
-            <Parameter Name="Product" Mode="In" Type="String" />
-            <Parameter Name="count" Mode="In" Type="String" />
-            <Parameter Name="fee" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="PeriodItems" EntityType="Gym_DBModel.PeriodItems" />
-          <EntitySet Name="Period" EntityType="Gym_DBModel.Period" />
-          <AssociationSet Name="FK_Period_People" Association="Gym_DBModel.FK_Period_People">
-            <End Role="People" EntitySet="People" />
-            <End Role="Period" EntitySet="Period" />
-          </AssociationSet>
-          <FunctionImport Name="ClosePeriod">
-            <Parameter Name="id" Mode="In" Type="Int32" />
-            <Parameter Name="desc" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="InsertPeriod">
-            <Parameter Name="id" Mode="In" Type="Int32" />
-            <Parameter Name="date" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="vw_newprogram" EntityType="Gym_DBModel.vw_newprogram" />
-          <EntitySet Name="Vw_Period" EntityType="Gym_DBModel.Vw_Period" />
-          <FunctionImport Name="lastLogIn" ReturnType="Collection(String)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="lastLogOut" ReturnType="Collection(Gym_DBModel.lastLogOut_Result)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="KartOzviat" ReturnType="Collection(Gym_DBModel.KartOzviat_Result)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ShowProgram" ReturnType="Collection(Gym_DBModel.ShowProgram_Result)">
-          <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="ShowPeriods" ReturnType="Collection(Gym_DBModel.ShowPeriods_Result)">
-            <Parameter Name="id" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="findProgramID_Result">
           <Property Type="Int32" Name="NewProgramID" Nullable="false" />
           <Property Type="String" Name="NewProgramDate" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="PeopleID" Nullable="false" />
           <Property Type="String" Name="NewProgramDesc" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="KartOzviat_Result">
+          <Property Type="Int32" Name="PeopleID" Nullable="false" />
+          <Property Type="String" Name="PeopleName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="PeopleMobile" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PeopleAddress" Nullable="true" />
+          <Property Type="String" Name="PeopleMellicode" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PeopleType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PeopleType2" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="PeopleDeptor" Nullable="false" />
+          <Property Type="Int32" Name="PeopleCreditor" Nullable="false" />
+          <Property Type="Binary" Name="PeopleLogo" Nullable="true" />
+          <Property Type="Guid" Name="PicID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="lastLogOut_Result">
+          <Property Type="String" Name="LogDateTimeIN" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LogDateTimeOut" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="ShowPeople_Result">
           <Property Type="Int32" Name="PeopleID" Nullable="false" />
@@ -1174,88 +1243,6 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Property Type="Binary" Name="PeopleLogo" Nullable="true" />
           <Property Type="Guid" Name="PicID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="PeriodItems">
-          <Key>
-            <PropertyRef Name="PeriodItemID" />
-          </Key>
-          <Property Name="PeriodItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PeriodID" Type="Int32" Nullable="false" />
-          <Property Name="PeriodItemProduct" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PeriodItemCount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PeriodItemFee" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Period">
-          <Key>
-            <PropertyRef Name="PeriodID" />
-          </Key>
-          <Property Name="PeriodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Perioddate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PeriodDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="peopleID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="People" Relationship="Gym_DBModel.FK_Period_People" FromRole="Period" ToRole="People" />
-        </EntityType>
-        <Association Name="FK_Period_People">
-          <End Type="Gym_DBModel.People" Role="People" Multiplicity="1" />
-          <End Type="Gym_DBModel.Period" Role="Period" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="People">
-              <PropertyRef Name="PeopleID" />
-            </Principal>
-            <Dependent Role="Period">
-              <PropertyRef Name="peopleID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="vw_newprogram">
-          <Key>
-            <PropertyRef Name="PeopleName" />
-            <PropertyRef Name="NewProgramID" />
-            <PropertyRef Name="NewProgramDate" />
-            <PropertyRef Name="PeopleID" />
-          </Key>
-          <Property Name="PeopleName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="NewProgramID" Type="Int32" Nullable="false" />
-          <Property Name="NewProgramDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PeopleID" Type="Int32" Nullable="false" />
-          <Property Name="NewProgramDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Vw_Period">
-          <Key>
-            <PropertyRef Name="PeriodID" />
-            <PropertyRef Name="Perioddate" />
-            <PropertyRef Name="peopleID" />
-            <PropertyRef Name="PeopleName" />
-          </Key>
-          <Property Name="PeriodID" Type="Int32" Nullable="false" />
-          <Property Name="Perioddate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PeriodDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="peopleID" Type="Int32" Nullable="false" />
-          <Property Name="PeopleName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <ComplexType Name="lastLogOut_Result">
-          <Property Type="String" Name="LogDateTimeIN" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="LogDateTimeOut" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="KartOzviat_Result">
-          <Property Type="Int32" Name="PeopleID" Nullable="false" />
-          <Property Type="String" Name="PeopleName" Nullable="false" MaxLength="150" />
-          <Property Type="String" Name="PeopleMobile" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="PeopleAddress" Nullable="true" />
-          <Property Type="String" Name="PeopleMellicode" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="PeopleType" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="PeopleType2" Nullable="true" MaxLength="20" />
-          <Property Type="Int32" Name="PeopleDeptor" Nullable="false" />
-          <Property Type="Int32" Name="PeopleCreditor" Nullable="false" />
-          <Property Type="Binary" Name="PeopleLogo" Nullable="true" />
-          <Property Type="Guid" Name="PicID" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="ShowProgram_Result">
-          <Property Type="String" Name="PDate" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="PDescription" Nullable="true" />
-          <Property Type="Int32" Name="PID" Nullable="false" />
-          <Property Type="String" Name="Pcount" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="PItem" Nullable="false" />
-        </ComplexType>
         <ComplexType Name="ShowPeriods_Result">
           <Property Type="String" Name="PDate" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="PDescription" Nullable="true" />
@@ -1263,6 +1250,13 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Property Type="String" Name="Pcount" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="PItems" Nullable="true" MaxLength="100" />
           <Property Type="Int32" Name="PFee" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="ShowProgram_Result">
+          <Property Type="String" Name="PDate" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PDescription" Nullable="true" />
+          <Property Type="Int32" Name="PID" Nullable="false" />
+          <Property Type="String" Name="Pcount" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="PItems" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1362,6 +1356,27 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Period">
+            <EntityTypeMapping TypeName="Gym_DBModel.Period">
+              <MappingFragment StoreEntitySet="Period">
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="Perioddate" ColumnName="Perioddate" />
+                <ScalarProperty Name="PeriodDesc" ColumnName="PeriodDesc" />
+                <ScalarProperty Name="peopleID" ColumnName="peopleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PeriodItems">
+            <EntityTypeMapping TypeName="Gym_DBModel.PeriodItems">
+              <MappingFragment StoreEntitySet="PeriodItems">
+                <ScalarProperty Name="PeriodItemID" ColumnName="PeriodItemID" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="PeriodItemProduct" ColumnName="PeriodItemProduct" />
+                <ScalarProperty Name="PeriodItemCount" ColumnName="PeriodItemCount" />
+                <ScalarProperty Name="PeriodItemFee" ColumnName="PeriodItemFee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Program">
             <EntityTypeMapping TypeName="Gym_DBModel.Program">
               <MappingFragment StoreEntitySet="Program">
@@ -1400,6 +1415,28 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="vw_newprogram">
+            <EntityTypeMapping TypeName="Gym_DBModel.vw_newprogram">
+              <MappingFragment StoreEntitySet="vw_newprogram">
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="NewProgramID" ColumnName="NewProgramID" />
+                <ScalarProperty Name="NewProgramDate" ColumnName="NewProgramDate" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="NewProgramDesc" ColumnName="NewProgramDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vw_Period">
+            <EntityTypeMapping TypeName="Gym_DBModel.Vw_Period">
+              <MappingFragment StoreEntitySet="Vw_Period">
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="Perioddate" ColumnName="Perioddate" />
+                <ScalarProperty Name="PeriodDesc" ColumnName="PeriodDesc" />
+                <ScalarProperty Name="peopleID" ColumnName="peopleID" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="vw_Peyment">
             <EntityTypeMapping TypeName="Gym_DBModel.vw_Peyment">
               <MappingFragment StoreEntitySet="vw_Peyment">
@@ -1434,6 +1471,7 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ClosePeriod" FunctionName="Gym_DBModel.Store.ClosePeriod" />
           <FunctionImportMapping FunctionImportName="closetheprogram" FunctionName="Gym_DBModel.Store.closetheprogram" />
           <FunctionImportMapping FunctionImportName="deletePeople" FunctionName="Gym_DBModel.Store.deletePeople" />
           <FunctionImportMapping FunctionImportName="ExitPersonDate" FunctionName="Gym_DBModel.Store.ExitPersonDate" />
@@ -1454,10 +1492,37 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <FunctionImportMapping FunctionImportName="InsertPay" FunctionName="Gym_DBModel.Store.InsertPay" />
           <FunctionImportMapping FunctionImportName="InsertPeople" FunctionName="Gym_DBModel.Store.InsertPeople" />
           <FunctionImportMapping FunctionImportName="InsertPeople2" FunctionName="Gym_DBModel.Store.InsertPeople2" />
+          <FunctionImportMapping FunctionImportName="InsertPeriod" FunctionName="Gym_DBModel.Store.InsertPeriod" />
+          <FunctionImportMapping FunctionImportName="InsertPeriodItem" FunctionName="Gym_DBModel.Store.InsertPeriodItem" />
           <FunctionImportMapping FunctionImportName="InsertPersonDate" FunctionName="Gym_DBModel.Store.InsertPersonDate" />
           <FunctionImportMapping FunctionImportName="insertProgram" FunctionName="Gym_DBModel.Store.insertProgram" />
           <FunctionImportMapping FunctionImportName="insertprogramnew" FunctionName="Gym_DBModel.Store.insertprogramnew" />
           <FunctionImportMapping FunctionImportName="insertshahriehdate" FunctionName="Gym_DBModel.Store.insertshahriehdate" />
+          <FunctionImportMapping FunctionImportName="KartOzviat" FunctionName="Gym_DBModel.Store.KartOzviat">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.KartOzviat_Result">
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
+                <ScalarProperty Name="PeopleMobile" ColumnName="PeopleMobile" />
+                <ScalarProperty Name="PeopleAddress" ColumnName="PeopleAddress" />
+                <ScalarProperty Name="PeopleMellicode" ColumnName="PeopleMellicode" />
+                <ScalarProperty Name="PeopleType" ColumnName="PeopleType" />
+                <ScalarProperty Name="PeopleType2" ColumnName="PeopleType2" />
+                <ScalarProperty Name="PeopleDeptor" ColumnName="PeopleDeptor" />
+                <ScalarProperty Name="PeopleCreditor" ColumnName="PeopleCreditor" />
+                <ScalarProperty Name="PeopleLogo" ColumnName="PeopleLogo" />
+                <ScalarProperty Name="PicID" ColumnName="PicID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="lastLogOut" FunctionName="Gym_DBModel.Store.lastLogOut">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.lastLogOut_Result">
+                <ScalarProperty Name="LogDateTimeIN" ColumnName="LogDateTimeIN" />
+                <ScalarProperty Name="LogDateTimeOut" ColumnName="LogDateTimeOut" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SaveProgram" FunctionName="Gym_DBModel.Store.SaveProgram" />
           <FunctionImportMapping FunctionImportName="ShowPeople" FunctionName="Gym_DBModel.Store.ShowPeople">
             <ResultMapping>
@@ -1493,100 +1558,6 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="updatedeptor1" FunctionName="Gym_DBModel.Store.updatedeptor1" />
-          <FunctionImportMapping FunctionImportName="updatedeptor2" FunctionName="Gym_DBModel.Store.updatedeptor2" />
-          <FunctionImportMapping FunctionImportName="updatedeptor3" FunctionName="Gym_DBModel.Store.updatedeptor3" />
-          <FunctionImportMapping FunctionImportName="updatedeptor4" FunctionName="Gym_DBModel.Store.updatedeptor4" />
-          <FunctionImportMapping FunctionImportName="Updatedeptor5" FunctionName="Gym_DBModel.Store.Updatedeptor5" />
-          <FunctionImportMapping FunctionImportName="Updatedeptor6" FunctionName="Gym_DBModel.Store.Updatedeptor6" />
-          <FunctionImportMapping FunctionImportName="UpdateGym1" FunctionName="Gym_DBModel.Store.UpdateGym1" />
-          <FunctionImportMapping FunctionImportName="UpdateGym2" FunctionName="Gym_DBModel.Store.UpdateGym2" />
-          <FunctionImportMapping FunctionImportName="UpdateLogin" FunctionName="Gym_DBModel.Store.UpdateLogin" />
-          <FunctionImportMapping FunctionImportName="UpdatePeople1" FunctionName="Gym_DBModel.Store.UpdatePeople1" />
-          <FunctionImportMapping FunctionImportName="UpdatePeople2" FunctionName="Gym_DBModel.Store.UpdatePeople2" />
-          <FunctionImportMapping FunctionImportName="InsertPeriodItem" FunctionName="Gym_DBModel.Store.InsertPeriodItem" />
-          <EntitySetMapping Name="PeriodItems">
-            <EntityTypeMapping TypeName="Gym_DBModel.PeriodItems">
-              <MappingFragment StoreEntitySet="PeriodItems">
-                <ScalarProperty Name="PeriodItemFee" ColumnName="PeriodItemFee" />
-                <ScalarProperty Name="PeriodItemCount" ColumnName="PeriodItemCount" />
-                <ScalarProperty Name="PeriodItemProduct" ColumnName="PeriodItemProduct" />
-                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
-                <ScalarProperty Name="PeriodItemID" ColumnName="PeriodItemID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Period">
-            <EntityTypeMapping TypeName="Gym_DBModel.Period">
-              <MappingFragment StoreEntitySet="Period">
-                <ScalarProperty Name="peopleID" ColumnName="peopleID" />
-                <ScalarProperty Name="PeriodDesc" ColumnName="PeriodDesc" />
-                <ScalarProperty Name="Perioddate" ColumnName="Perioddate" />
-                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="ClosePeriod" FunctionName="Gym_DBModel.Store.ClosePeriod" />
-          <FunctionImportMapping FunctionImportName="InsertPeriod" FunctionName="Gym_DBModel.Store.InsertPeriod" />
-          <EntitySetMapping Name="vw_newprogram">
-            <EntityTypeMapping TypeName="Gym_DBModel.vw_newprogram">
-              <MappingFragment StoreEntitySet="vw_newprogram">
-                <ScalarProperty Name="NewProgramDesc" ColumnName="NewProgramDesc" />
-                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
-                <ScalarProperty Name="NewProgramDate" ColumnName="NewProgramDate" />
-                <ScalarProperty Name="NewProgramID" ColumnName="NewProgramID" />
-                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Vw_Period">
-            <EntityTypeMapping TypeName="Gym_DBModel.Vw_Period">
-              <MappingFragment StoreEntitySet="Vw_Period">
-                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
-                <ScalarProperty Name="peopleID" ColumnName="peopleID" />
-                <ScalarProperty Name="PeriodDesc" ColumnName="PeriodDesc" />
-                <ScalarProperty Name="Perioddate" ColumnName="Perioddate" />
-                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="lastLogIn" FunctionName="Gym_DBModel.Store.lastLogIn" />
-          <FunctionImportMapping FunctionImportName="lastLogOut" FunctionName="Gym_DBModel.Store.lastLogOut">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Gym_DBModel.lastLogOut_Result">
-                <ScalarProperty Name="LogDateTimeIN" ColumnName="LogDateTimeIN" />
-                <ScalarProperty Name="LogDateTimeOut" ColumnName="LogDateTimeOut" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="KartOzviat" FunctionName="Gym_DBModel.Store.KartOzviat">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Gym_DBModel.KartOzviat_Result">
-                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
-                <ScalarProperty Name="PeopleName" ColumnName="PeopleName" />
-                <ScalarProperty Name="PeopleMobile" ColumnName="PeopleMobile" />
-                <ScalarProperty Name="PeopleAddress" ColumnName="PeopleAddress" />
-                <ScalarProperty Name="PeopleMellicode" ColumnName="PeopleMellicode" />
-                <ScalarProperty Name="PeopleType" ColumnName="PeopleType" />
-                <ScalarProperty Name="PeopleType2" ColumnName="PeopleType2" />
-                <ScalarProperty Name="PeopleDeptor" ColumnName="PeopleDeptor" />
-                <ScalarProperty Name="PeopleCreditor" ColumnName="PeopleCreditor" />
-                <ScalarProperty Name="PeopleLogo" ColumnName="PeopleLogo" />
-                <ScalarProperty Name="PicID" ColumnName="PicID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="ShowProgram" FunctionName="Gym_DBModel.Store.ShowProgram">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="Gym_DBModel.ShowProgram_Result">
-                <ScalarProperty Name="PDate" ColumnName="PDate" />
-                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
-                <ScalarProperty Name="PID" ColumnName="PID" />
-                <ScalarProperty Name="Pcount" ColumnName="Pcount" />
-                <ScalarProperty Name="PItem" ColumnName="PItem" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="ShowPeriods" FunctionName="Gym_DBModel.Store.ShowPeriods">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Gym_DBModel.ShowPeriods_Result">
@@ -1599,6 +1570,28 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ShowProgram" FunctionName="Gym_DBModel.Store.ShowProgram">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.ShowProgram_Result">
+                <ScalarProperty Name="PDate" ColumnName="PDate" />
+                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="Pcount" ColumnName="Pcount" />
+                <ScalarProperty Name="PItems" ColumnName="PItems" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="updatedeptor1" FunctionName="Gym_DBModel.Store.updatedeptor1" />
+          <FunctionImportMapping FunctionImportName="updatedeptor2" FunctionName="Gym_DBModel.Store.updatedeptor2" />
+          <FunctionImportMapping FunctionImportName="updatedeptor3" FunctionName="Gym_DBModel.Store.updatedeptor3" />
+          <FunctionImportMapping FunctionImportName="updatedeptor4" FunctionName="Gym_DBModel.Store.updatedeptor4" />
+          <FunctionImportMapping FunctionImportName="Updatedeptor5" FunctionName="Gym_DBModel.Store.Updatedeptor5" />
+          <FunctionImportMapping FunctionImportName="Updatedeptor6" FunctionName="Gym_DBModel.Store.Updatedeptor6" />
+          <FunctionImportMapping FunctionImportName="UpdateGym1" FunctionName="Gym_DBModel.Store.UpdateGym1" />
+          <FunctionImportMapping FunctionImportName="UpdateGym2" FunctionName="Gym_DBModel.Store.UpdateGym2" />
+          <FunctionImportMapping FunctionImportName="UpdateLogin" FunctionName="Gym_DBModel.Store.UpdateLogin" />
+          <FunctionImportMapping FunctionImportName="UpdatePeople1" FunctionName="Gym_DBModel.Store.UpdatePeople1" />
+          <FunctionImportMapping FunctionImportName="UpdatePeople2" FunctionName="Gym_DBModel.Store.UpdatePeople2" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

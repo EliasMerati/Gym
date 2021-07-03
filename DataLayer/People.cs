@@ -20,9 +20,9 @@ namespace DataLayer
             this.Logs = new HashSet<Logs>();
             this.NewProgram = new HashSet<NewProgram>();
             this.Payment = new HashSet<Payment>();
+            this.Period = new HashSet<Period>();
             this.Program = new HashSet<Program>();
             this.Shahrieh = new HashSet<Shahrieh>();
-            this.Period = new HashSet<Period>();
         }
     
         public int PeopleID { get; set; }
@@ -44,10 +44,10 @@ namespace DataLayer
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payment> Payment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Period> Period { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Program> Program { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shahrieh> Shahrieh { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Period> Period { get; set; }
     }
 }

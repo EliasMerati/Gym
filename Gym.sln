@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gym", "Gym\Gym.csproj", "{0B399B68-6452-4F30-B5DC-26E6C46BD61C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{2ED129DD-ABA5-4D51-86CA-2E83515161DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{907A8901-0EFF-4087-928F-01BCC4C93543}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{0B399B68-6452-4F30-B5DC-26E6C46BD61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B399B68-6452-4F30-B5DC-26E6C46BD61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B399B68-6452-4F30-B5DC-26E6C46BD61C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2ED129DD-ABA5-4D51-86CA-2E83515161DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2ED129DD-ABA5-4D51-86CA-2E83515161DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2ED129DD-ABA5-4D51-86CA-2E83515161DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2ED129DD-ABA5-4D51-86CA-2E83515161DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907A8901-0EFF-4087-928F-01BCC4C93543}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907A8901-0EFF-4087-928F-01BCC4C93543}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907A8901-0EFF-4087-928F-01BCC4C93543}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907A8901-0EFF-4087-928F-01BCC4C93543}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

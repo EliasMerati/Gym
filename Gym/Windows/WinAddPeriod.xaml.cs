@@ -52,10 +52,8 @@ namespace Gym.Windows
                     {
                         BtnCloseProgram.IsEnabled = false;
                     }
-                    
-                    Txtcount.Text = string.Empty;
-                    TxtFee.Text = string.Empty;
-                    TxtproductName.Text = string.Empty;
+
+                    clear();
                     TxtproductName.Focus();
                     ts.Complete();
                 }
@@ -64,6 +62,13 @@ namespace Gym.Windows
                     MessageBox.Show(n.Message);
                 }
             }
+        }
+
+        void clear()
+        {
+            Txtcount.Text = string.Empty;
+            TxtFee.Text = string.Empty;
+            TxtproductName.Text = string.Empty;
         }
 
         private void BtnCloseProgram_Click(object sender, RoutedEventArgs e)

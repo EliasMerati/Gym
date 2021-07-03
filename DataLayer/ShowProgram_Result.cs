@@ -17,6 +17,6 @@ namespace DataLayer
         public string PDescription { get; set; }
         public int PID { get; set; }
         public string Pcount { get; set; }
-        public string PItem { get; set; }
+        public string PItems { get; set; }
     }
 }

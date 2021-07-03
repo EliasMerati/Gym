@@ -47,7 +47,7 @@
                 <DropShadowEffect/>
             </DataGrid.Effect>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="شماره" Binding="{Binding PeriodItemsID}" >
+                <DataGridTextColumn Header="شماره" Binding="{Binding PeriodItemID}" >
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="FontFamily" Value="a hamase"/>
@@ -73,7 +73,7 @@
 
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="نام محصول" Binding="{Binding PeriodItemsItems}">
+                <DataGridTextColumn Header="نام محصول" Binding="{Binding PeriodItemProduct}">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="FontFamily" Value="a hamase"/>
@@ -100,7 +100,7 @@
                 </DataGridTextColumn>
 
 
-                <DataGridTextColumn Header="مقدار" Binding="{Binding PeriodItemsCount}">
+                <DataGridTextColumn Header="مقدار" Binding="{Binding PeriodItemCount}">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="FontFamily" Value="a hamase"/>
@@ -126,7 +126,7 @@
 
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="قیمت(تومان)" Binding="{Binding PeriodItemsFee, StringFormat=N0}">
+                <DataGridTextColumn Header="قیمت(تومان)" Binding="{Binding PeriodItemFee, StringFormat=N0}">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="FontFamily" Value="a hamase"/>

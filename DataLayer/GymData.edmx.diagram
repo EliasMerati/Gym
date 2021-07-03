@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e103ad7e2ec840e3bcba54652c44de2d" Name="Diagram1" ZoomLevel="114">
+      <Diagram DiagramId="ce703474c66047d19efa246dd3dde790" Name="Diagram1">
         <EntityTypeShape EntityType="Gym_DBModel.Gym" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Gym_DBModel.Login" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Gym_DBModel.Logs" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
@@ -12,23 +12,23 @@
         <EntityTypeShape EntityType="Gym_DBModel.NewProgramItem" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Gym_DBModel.Payment" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Gym_DBModel.People" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_DBModel.Period" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_DBModel.PeriodItems" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Gym_DBModel.Program" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Gym_DBModel.Shahrieh" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gym_DBModel.vw_log" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gym_DBModel.vw_Peyment" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gym_DBModel.Vw_Program" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Gym_DBModel.vw_shahrieh" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_DBModel.vw_log" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_DBModel.vw_newprogram" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_DBModel.Vw_Period" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_DBModel.vw_Peyment" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_DBModel.Vw_Program" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Gym_DBModel.vw_shahrieh" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
         <AssociationConnector Association="Gym_DBModel.FK_Log_People" ManuallyRouted="false" />
         <AssociationConnector Association="Gym_DBModel.FK_NewProgram_people" ManuallyRouted="false" />
         <AssociationConnector Association="Gym_DBModel.FK_NewProgramItem_NewProgram" ManuallyRouted="false" />
         <AssociationConnector Association="Gym_DBModel.FK_Payment_People" ManuallyRouted="false" />
+        <AssociationConnector Association="Gym_DBModel.FK_Period_People" ManuallyRouted="false" />
         <AssociationConnector Association="Gym_DBModel.FK_Program_People" ManuallyRouted="false" />
         <AssociationConnector Association="Gym_DBModel.FK_Shahrieh_People" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Gym_DBModel.PeriodItems" Width="1.5" PointX="8.375" PointY="10.75" />
-        <EntityTypeShape EntityType="Gym_DBModel.Period" Width="1.5" PointX="3" PointY="18.875" />
-        <AssociationConnector Association="Gym_DBModel.FK_Period_People" />
-        <EntityTypeShape EntityType="Gym_DBModel.vw_newprogram" Width="1.5" PointX="10.375" PointY="10.75" />
-        <EntityTypeShape EntityType="Gym_DBModel.Vw_Period" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

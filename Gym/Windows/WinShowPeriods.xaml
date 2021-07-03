@@ -51,7 +51,7 @@
 
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="تاریخ ثبت دوره" Binding="{Binding PeriodDate}" >
+                <DataGridTextColumn Header="تاریخ ثبت دوره" Binding="{Binding Perioddate}" >
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="FontFamily" Value="a hamase"/>
@@ -77,7 +77,7 @@
 
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="توضیحات" Binding="{Binding PeriodDescription}" >
+                <DataGridTextColumn Header="توضیحات" Binding="{Binding PeriodDesc}" >
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="{x:Type DataGridColumnHeader}">
                             <Setter Property="FontFamily" Value="a hamase"/>
