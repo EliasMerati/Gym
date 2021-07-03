@@ -26,22 +26,32 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="188,62,0,0" TextWrapping="Wrap" Text="طراح و برنامه نویس :" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="136">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="188,45,0,0" TextWrapping="Wrap" Text="طراح و برنامه نویس :" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="136">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="29,114,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Email:" FlowDirection="LeftToRight" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="28,91,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Email:" FlowDirection="LeftToRight" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="73,114,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Elias.Merati@Gmail.Com" FlowDirection="LeftToRight" VerticalAlignment="Top" Foreground="#FFF2DE46" FontSize="14" Width="251">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="72,91,0,0" TextWrapping="Wrap" FontWeight="Bold" Text="Elias.Merati@Gmail.Com" FlowDirection="LeftToRight" VerticalAlignment="Top" Foreground="#FFF2DE46" FontSize="14" Width="251">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="52,62,0,0" TextWrapping="Wrap" Text="الیاس مرآتی" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFFFE200" FontSize="14" Width="136">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="52,45,0,0" TextWrapping="Wrap" Text="الیاس مرآتی" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFFFE200" FontSize="14" Width="136">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="225,139,0,0" TextWrapping="Wrap" Text="تلفن تماس :" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="77">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="72,132,0,0" TextWrapping="Wrap" Text="09223610626" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFFFE200" FontSize="20" Width="136">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
