@@ -771,5 +771,23 @@ namespace DataLayer
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<KartOzviat_Result>("KartOzviat", idParameter);
         }
+    
+        public virtual ObjectResult<ShowProgram_Result> ShowProgram(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ShowProgram_Result>("ShowProgram", idParameter);
+        }
+    
+        public virtual ObjectResult<ShowPeriods_Result> ShowPeriods(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ShowPeriods_Result>("ShowPeriods", idParameter);
+        }
     }
 }

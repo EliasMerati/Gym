@@ -114,6 +114,12 @@
     <Compile Include="ShowPeople_Result.cs">
       <DependentUpon>GymData.tt</DependentUpon>
     </Compile>
+    <Compile Include="ShowPeriods_Result.cs">
+      <DependentUpon>GymData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShowProgram_Result.cs">
+      <DependentUpon>GymData.tt</DependentUpon>
+    </Compile>
     <Compile Include="vw_log.cs">
       <DependentUpon>GymData.tt</DependentUpon>
     </Compile>

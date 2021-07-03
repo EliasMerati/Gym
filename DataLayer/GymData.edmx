@@ -442,6 +442,12 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
         <Function Name="ShowPeopleByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="ShowPeriods" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ShowProgram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
         <Function Name="updatedeptor1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="deptor" Type="int" Mode="In" />
@@ -1129,6 +1135,12 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <FunctionImport Name="KartOzviat" ReturnType="Collection(Gym_DBModel.KartOzviat_Result)">
           <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="ShowProgram" ReturnType="Collection(Gym_DBModel.ShowProgram_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ShowPeriods" ReturnType="Collection(Gym_DBModel.ShowPeriods_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="findProgramID_Result">
           <Property Type="Int32" Name="NewProgramID" Nullable="false" />
@@ -1236,6 +1248,21 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Property Type="Int32" Name="PeopleCreditor" Nullable="false" />
           <Property Type="Binary" Name="PeopleLogo" Nullable="true" />
           <Property Type="Guid" Name="PicID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ShowProgram_Result">
+          <Property Type="String" Name="PDate" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PDescription" Nullable="true" />
+          <Property Type="Int32" Name="PID" Nullable="false" />
+          <Property Type="String" Name="Pcount" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="PItem" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ShowPeriods_Result">
+          <Property Type="String" Name="PDate" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="PDescription" Nullable="true" />
+          <Property Type="Int32" Name="PID" Nullable="false" />
+          <Property Type="String" Name="Pcount" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PItems" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="PFee" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1546,6 +1573,29 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
                 <ScalarProperty Name="PeopleCreditor" ColumnName="PeopleCreditor" />
                 <ScalarProperty Name="PeopleLogo" ColumnName="PeopleLogo" />
                 <ScalarProperty Name="PicID" ColumnName="PicID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ShowProgram" FunctionName="Gym_DBModel.Store.ShowProgram">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.ShowProgram_Result">
+                <ScalarProperty Name="PDate" ColumnName="PDate" />
+                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="Pcount" ColumnName="Pcount" />
+                <ScalarProperty Name="PItem" ColumnName="PItem" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ShowPeriods" FunctionName="Gym_DBModel.Store.ShowPeriods">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Gym_DBModel.ShowPeriods_Result">
+                <ScalarProperty Name="PDate" ColumnName="PDate" />
+                <ScalarProperty Name="PDescription" ColumnName="PDescription" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="Pcount" ColumnName="Pcount" />
+                <ScalarProperty Name="PItems" ColumnName="PItems" />
+                <ScalarProperty Name="PFee" ColumnName="PFee" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

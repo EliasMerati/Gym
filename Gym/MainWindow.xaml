@@ -9,9 +9,9 @@
         Title="MainWindow" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   Height="700" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True" FontFamily="a hamase" Loaded="Window_Loaded" Activated="Window_Activated">
     <Grid>
         <Image HorizontalAlignment="Right" Name="img"   VerticalAlignment="Top" Source="Resources/main-1.jpg" Opacity="0.9" MouseDown="Image_MouseDown_3" Margin="-10,0,0,0" Stretch="Fill" />
-        <Image HorizontalAlignment="Right" Source="/Resources/Untitled-1.png" Height="23" Margin="0,10,38,0" Cursor="Hand" VerticalAlignment="Top" Width="23" MouseDown="Image_MouseDown_1"/>
-        <Image HorizontalAlignment="Right" Source="/Resources/Untitled-3.png" Cursor="Hand" Height="23" Margin="0,10,66,0" VerticalAlignment="Top" Width="23" MouseDown="Image_MouseDown_2"/>
-        <Image HorizontalAlignment="Right" Source="/Resources/Untitled-2.png" Cursor="Hand" Height="23" Margin="0,10,10,0" VerticalAlignment="Top" Width="23" MouseDown="Image_MouseDown"/>
+        <Image HorizontalAlignment="Right" Source="/Resources/Untitled-1.png" Height="23" Margin="0,15,38,0" Cursor="Hand" VerticalAlignment="Top" Width="23" MouseDown="Image_MouseDown_1"/>
+        <Image HorizontalAlignment="Right" Source="/Resources/Untitled-3.png" Cursor="Hand" Height="23" Margin="0,15,66,0" VerticalAlignment="Top" Width="23" MouseDown="Image_MouseDown_2"/>
+        <Image HorizontalAlignment="Right" Source="/Resources/Untitled-2.png" Cursor="Hand" Height="23" Margin="0,15,10,0" VerticalAlignment="Top" Width="23" MouseDown="Image_MouseDown"/>
         <Label Content="..." x:Name="LblDate" FontFamily="A Hamase"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="145" FontSize="20" FontWeight="Bold" >
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -23,8 +23,8 @@
         <Label Content="..." x:Name="Lblhour" FontFamily="A Hamase"  HorizontalAlignment="Left" Margin="183,7,0,0" VerticalAlignment="Top" Width="145" FontSize="22" FontWeight="Bold" >
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Red" Offset="0"/>
-                    <GradientStop Color="#FF5BFF00" Offset="1"/>
+                    <GradientStop Color="#FF587F05" Offset="1"/>
+                    <GradientStop Color="#FFA6EA15"/>
                 </LinearGradientBrush>
             </Label.Foreground>
             <Label.Background>
