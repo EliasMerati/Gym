@@ -59,13 +59,7 @@ namespace Gym.Windows
             {
                 try
                 {
-
-                    var s = db.People.Where(y => y.PeopleID == ID).ToList();
-                    if (s[0].PeopleCreditor != 0 || s[0].PeopleDeptor != 0)
-                    {
-                        lbldeptor.Content = (s[0].PeopleDeptor - s[0].PeopleCreditor).ToString("n0");
-                    }
-                    lbldeptor.Foreground = Brushes.Crimson;
+                    Deptor();
                     lblName.Content = Name;
                     showlog();
                     showimage();
@@ -80,6 +74,19 @@ namespace Gym.Windows
                 MessageBox.Show("ورود خروجی برای این کاربر ثبت نشده است");
             }
 
+        }
+        void Deptor()
+        {
+            var s = db.People.Where(y => y.PeopleID == ID).ToList();
+            if (s[0].PeopleCreditor != 0 || s[0].PeopleDeptor != 0)
+            {
+                lbldeptor.Content = (s[0].PeopleDeptor - s[0].PeopleCreditor).ToString("n0");
+            }
+            else
+            {
+                lbldeptor.Content = s[0].PeopleDeptor;
+            }
+            lbldeptor.Foreground = Brushes.Crimson;
         }
 
         private void showlog() => DgvLogs.ItemsSource = db.vw_log.Where(y => y.PeopleID == ID).OrderByDescending(y => y.LogDateTimeIN).ToList();
@@ -107,10 +114,9 @@ namespace Gym.Windows
 
         private void Btnpey_Click(object sender, RoutedEventArgs e)
         {
-            WinAddPeyment win = new WinAddPeyment();
-            win.cash = int.Parse(lbldeptor.Content.ToString());
-            win.id = ID;
-            win.ShowDialog();
+                WinAddPeyment win = new WinAddPeyment();
+                win.id = ID;
+                win.ShowDialog();              
         }
 
         private void BtnShowpayment_Click(object sender, RoutedEventArgs e)

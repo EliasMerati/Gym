@@ -429,6 +429,10 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
         <Function Name="lastLogOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
         </Function>
+        <Function Name="MinessDeptor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="deptor" Type="int" Mode="In" />
+        </Function>
         <Function Name="SaveProgram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="name" Type="nvarchar" Mode="In" />
@@ -454,10 +458,6 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Parameter Name="deptor" Type="int" Mode="In" />
         </Function>
         <Function Name="updatedeptor3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="id" Type="int" Mode="In" />
-          <Parameter Name="deptor" Type="int" Mode="In" />
-        </Function>
-        <Function Name="updatedeptor4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="deptor" Type="int" Mode="In" />
         </Function>
@@ -1189,6 +1189,14 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
             <Parameter Name="type" Mode="In" Type="String" />
             <Parameter Name="type2" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="updatedeptor41">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MinessDeptor">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="deptor" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="findProgramID_Result">
           <Property Type="Int32" Name="NewProgramID" Nullable="false" />
@@ -1580,13 +1588,13 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <FunctionImportMapping FunctionImportName="updatedeptor1" FunctionName="Gym_DBModel.Store.updatedeptor1" />
           <FunctionImportMapping FunctionImportName="updatedeptor2" FunctionName="Gym_DBModel.Store.updatedeptor2" />
           <FunctionImportMapping FunctionImportName="updatedeptor3" FunctionName="Gym_DBModel.Store.updatedeptor3" />
-          <FunctionImportMapping FunctionImportName="updatedeptor4" FunctionName="Gym_DBModel.Store.updatedeptor4" />
           <FunctionImportMapping FunctionImportName="Updatedeptor6" FunctionName="Gym_DBModel.Store.Updatedeptor6" />
           <FunctionImportMapping FunctionImportName="UpdateGym1" FunctionName="Gym_DBModel.Store.UpdateGym1" />
           <FunctionImportMapping FunctionImportName="UpdateGym2" FunctionName="Gym_DBModel.Store.UpdateGym2" />
           <FunctionImportMapping FunctionImportName="UpdateLogin" FunctionName="Gym_DBModel.Store.UpdateLogin" />
           <FunctionImportMapping FunctionImportName="UpdatePeople1" FunctionName="Gym_DBModel.Store.UpdatePeople1" />
           <FunctionImportMapping FunctionImportName="UpdatePeople2" FunctionName="Gym_DBModel.Store.UpdatePeople2" />
+          <FunctionImportMapping FunctionImportName="MinessDeptor" FunctionName="Gym_DBModel.Store.MinessDeptor" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

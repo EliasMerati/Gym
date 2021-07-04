@@ -21,7 +21,6 @@ namespace Gym.Windows
 
         public int id { get; set; }
         Gym_DBEntities db = new Gym_DBEntities();
-        public int cash { get; set; }
         private void timer_Tick(object sender, EventArgs e) => LblDate.Content = DateTime.Now.date() + " _ " + DateTime.Now.ToString("HH:mm:ss");
 
         private void Timer()
@@ -49,44 +48,35 @@ namespace Gym.Windows
                 try
                 {
                     var f = db.People.Where(l => l.PeopleID == id).ToList();
-                    if (f[0].PeopleDeptor > 0 && Cmbtype2.Text == "درج در بدهی ها")
+                    if (f[0].PeopleDeptor > 0 && Cmbtype2.SelectedIndex == 1)
                     {
                         db.updatedeptor2(id, int.Parse(TxtPey.Text.Trim()));
-                        db.SaveChanges();
                     }
-                    else if (f[0].PeopleDeptor == 0 && Cmbtype2.Text == "درج در بدهی ها")
+                    else if (f[0].PeopleDeptor == 0 && Cmbtype2.SelectedIndex == 1)
                     {
-                        db.updatedeptor1(id, int.Parse(TxtPey.Text.Trim()));
-                        db.SaveChanges();
+                        db.updatedeptor1(id, int.Parse(TxtPey.Text.Trim()));  
                     }
-                    else if (Cmbtype2.Text == "درج در بدهی ها" && f[0].PeopleCreditor > int.Parse(TxtPey.Text))
+                    else if (Cmbtype2.SelectedIndex == 1 && f[0].PeopleCreditor > int.Parse(TxtPey.Text))
                     {
                         db.updatedeptor3(id, int.Parse(TxtPey.Text.Trim()));
-                        db.SaveChanges();
                     }
-                    else if (f[0].PeopleDeptor > 0 && Cmbtype2.Text == "نقدی" )
+                    else if (Cmbtype.SelectedIndex == 5 && Cmbtype2.SelectedIndex == 0)
                     {
-                        db.updatedeptor4(id, int.Parse(TxtPey.Text.Trim()));
-                        db.SaveChanges();
+                        db.MinessDeptor(id, int.Parse(TxtPey.Text.Trim()));  
                     }
-                    else if (f[0].PeopleDeptor >int.Parse(TxtPey.Text) && Cmbtype2.Text == "نقدی")
+                    else if (Cmbtype.SelectedIndex == 4 && Cmbtype2.SelectedIndex == 0)
                     {
-                        db.updatedeptor4(id, int.Parse(TxtPey.Text.Trim()));
-                        db.SaveChanges();
+                        db.MinessDeptor(id, int.Parse(TxtPey.Text.Trim()));   
                     }
-                    else if (Cmbtype2.Text == "تسویه حساب")
+                    else if (Cmbtype2.SelectedIndex == 2)
                     {
                         db.Updatedeptor6(id);
-                        db.SaveChanges();
                     }
-                    
                     db.InsertPay(id, int.Parse(TxtPey.Text.Trim()), DateTime.Now.date() + " _ " + DateTime.Now.ToString("HH:mm:ss"), Cmbtype.Text, Cmbtype2.Text);
-                    db.SaveChanges();
-
-                    
-                    ts.Complete();
+                    db.SaveChanges();   
                     MessageBox.Show("عملیات با موفقیت انجام شد");
-
+                    Close();
+                    ts.Complete();
                 }
                 catch 
                 {

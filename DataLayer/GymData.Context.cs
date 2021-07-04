@@ -780,5 +780,31 @@ namespace DataLayer
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdatePeople2", idParameter, nameParameter, mobileParameter, addressParameter, mellicodeParameter, typeParameter, type2Parameter);
         }
+    
+        public virtual int updatedeptor41(Nullable<int> id, Nullable<int> deptor)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var deptorParameter = deptor.HasValue ?
+                new ObjectParameter("deptor", deptor) :
+                new ObjectParameter("deptor", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updatedeptor41", idParameter, deptorParameter);
+        }
+    
+        public virtual int MinessDeptor(Nullable<int> id, Nullable<int> deptor)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var deptorParameter = deptor.HasValue ?
+                new ObjectParameter("deptor", deptor) :
+                new ObjectParameter("deptor", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("MinessDeptor", idParameter, deptorParameter);
+        }
     }
 }

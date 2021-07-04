@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gym.Windows"
         mc:Ignorable="d"
-        Title="WinShowLogs" Height="600" AllowsTransparency="True" Width="1000" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded">
+        Title="WinShowLogs" Height="600" AllowsTransparency="True" Width="1000" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded" >
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="600" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="1000" MouseDown="Rectangle_MouseDown" Fill="Black">
             <Rectangle.Stroke>
@@ -163,18 +163,18 @@
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="890,566,0,-12" TextWrapping="Wrap" Text="وضعیت بدهی:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="100">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="930,566,0,0" TextWrapping="Wrap" Text="وضعیت :" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="60">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
         <Image Name="imgUser" Source="../Resources/User.png" HorizontalAlignment="Left" Height="110" Margin="10,5,0,0" VerticalAlignment="Top" Width="113" OpacityMask="White"/>
-        <Button Content=" مشاهده ی برنامه ها" x:Name="Btnshowprograms" HorizontalAlignment="Left" FontFamily="a hamase" Margin="408,88,0,0" VerticalAlignment="Top" Width="272" Height="27" Foreground="White" Background="Red" BorderBrush="#FFFFF100" Click="Btnshowprograms_Click" >
+        <Button Content=" مشاهده ی برنامه ها" x:Name="Btnshowprograms" HorizontalAlignment="Left" FontFamily="a hamase" Margin="408,88,0,0" VerticalAlignment="Top" Width="272" Height="27" Foreground="White" Background="{x:Null}" BorderBrush="#FF00FF87" Click="Btnshowprograms_Click" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content=" مشاهده ی دوره ها" x:Name="Btnshowperiods" HorizontalAlignment="Left" FontFamily="a hamase" Margin="128,88,0,0" VerticalAlignment="Top" Width="275" Height="27" Foreground="White" Background="#FF72004A" BorderBrush="Yellow" Click="Btnshowperiods_Click" >
+        <Button Content=" مشاهده ی دوره ها" x:Name="Btnshowperiods" HorizontalAlignment="Left" FontFamily="a hamase" Margin="128,88,0,0" VerticalAlignment="Top" Width="275" Height="27" Foreground="White" Background="{x:Null}" BorderBrush="#FFDCFF00" Click="Btnshowperiods_Click" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -184,7 +184,7 @@
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <Label Content="0" Name="lbldeptor" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="631,556,0,0" VerticalAlignment="Top" Width="270" Foreground="#FFE53B08" FontFamily="A Hamase" FontSize="20" Height="38"/>
+        <Label Content="0" Name="lbldeptor" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="631,556,0,0" VerticalAlignment="Top" Width="299" Foreground="#FFE53B08" FontFamily="A Hamase" FontSize="20" Height="38"/>
         <Button Content="ثبت مبالغ" x:Name="Btnpey" HorizontalAlignment="Left" FontFamily="a hamase" Margin="10,566,0,0" VerticalAlignment="Top" Width="144" Height="27" Foreground="White" Background="#FF240000" BorderBrush="#FFFF006F" Click="Btnpey_Click" >
             <Button.Effect>
                 <DropShadowEffect/>
@@ -216,7 +216,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content=" ثبت فایل برنامه یا دوره ی مورد نظر" x:Name="BtnProgramFile" HorizontalAlignment="Left" FontFamily="a hamase" Margin="685,88,0,0" VerticalAlignment="Top" Width="229" Height="27" Foreground="White" Background="Black" BorderBrush="#FFFFD100" Click="BtnProgramFile_Click" >
+        <Button Content=" ثبت فایل برنامه یا دوره ی مورد نظر" x:Name="BtnProgramFile" HorizontalAlignment="Left" FontFamily="a hamase" Margin="685,88,0,0" VerticalAlignment="Top" Width="229" Height="27" Foreground="White" Background="Black" BorderBrush="Red" Click="BtnProgramFile_Click" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
