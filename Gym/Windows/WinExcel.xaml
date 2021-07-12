@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Gym.Windows"
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:Core="clr-namespace:Telerik.Windows.Controls.Spreadsheet.Controls.Core;assembly=Telerik.Windows.Controls.Spreadsheet" xmlns:Controls="clr-namespace:Telerik.Windows.Controls.Spreadsheet.Controls;assembly=Telerik.Windows.Controls.Spreadsheet" xmlns:Txt="clr-namespace:Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Txt;assembly=Telerik.Windows.Documents.Spreadsheet" xmlns:Csv="clr-namespace:Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv;assembly=Telerik.Windows.Documents.Spreadsheet" xmlns:Pdf="clr-namespace:Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf;assembly=Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf" xmlns:Xlsx="clr-namespace:Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx;assembly=Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml" x:Class="Gym.Windows.WinExcel"
         mc:Ignorable="d"
-        Title="WinExcel" Height="600"  Width="1200" WindowStyle="ThreeDBorderWindow"  WindowStartupLocation="CenterScreen" Background="Transparent">
+        Title="WinExcel" Height="600"  Width="900" WindowStyle="ThreeDBorderWindow"  WindowStartupLocation="CenterScreen" Background="Transparent">
     <Grid>
 
         <Grid x:Name="spreadsheetLayoutRoot">

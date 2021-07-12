@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gym.Windows"
         mc:Ignorable="d"
-        Title="WinShowUsers" Height="600" AllowsTransparency="True" Width="1200" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Activated="Window_Activated" Loaded="Window_Loaded">
+        Title="WinShowUsers" Height="600" AllowsTransparency="True" Width="900" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Activated="Window_Activated" Loaded="Window_Loaded">
     <Grid>
-        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="600" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="1200" MouseDown="Rectangle_MouseDown_1">
+        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="600" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="900" MouseDown="Rectangle_MouseDown_1">
             <Rectangle.Stroke>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFA700" Offset="0"/>
@@ -26,12 +26,12 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="1167,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown_1" >
+        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="867,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown_1" >
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <DataGrid x:Name="DgvPeople"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="539" Margin="9,51,0,0" VerticalAlignment="Top" Width="1181" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}" SelectionChanged="DgvPeople_SelectionChanged">
+        <DataGrid x:Name="DgvPeople"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="539" Margin="9,51,0,0" VerticalAlignment="Top" Width="884" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}" SelectionChanged="DgvPeople_SelectionChanged">
             <DataGrid.Effect>
                 <DropShadowEffect/>
             </DataGrid.Effect>
@@ -256,7 +256,7 @@
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBox HorizontalAlignment="Left" x:Name="TxtFilter" Height="27" TabIndex="0" Margin="568,15,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="512" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" TextChanged="TxtFilter_TextChanged">
+        <TextBox HorizontalAlignment="Left" x:Name="TxtFilter" Height="27" TabIndex="0" Margin="568,15,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="267" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" TextChanged="TxtFilter_TextChanged">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>

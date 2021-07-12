@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gym.Windows"
         mc:Ignorable="d"
-        Title="WinAddUtility"  Height="700" FontFamily="a hamase" AllowsTransparency="True" Width="1023" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded">
+        Title="WinAddUtility"  Height="600" FontFamily="a hamase" AllowsTransparency="True" Width="900" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded">
     <Grid>
-        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="700" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="1023" MouseDown="Rectangle_MouseDown">
+        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="600" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="900" MouseDown="Rectangle_MouseDown">
             <Rectangle.Stroke>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFA700" Offset="0"/>
@@ -15,12 +15,12 @@
                 </LinearGradientBrush>
             </Rectangle.Stroke>
         </Rectangle>
-        <Image HorizontalAlignment="Left" Height="18" Cursor="Hand" Margin="992,8,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown" >
+        <Image HorizontalAlignment="Left" Height="18" Cursor="Hand" Margin="864,19,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown" >
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <DataGrid x:Name="DgvProgram"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="554" Margin="9,140,0,0" VerticalAlignment="Top" Width="1006" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}" SelectedCellsChanged="DgvProgram_SelectedCellsChanged"  >
+        <DataGrid x:Name="DgvProgram"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="450" Margin="9,140,0,0" VerticalAlignment="Top" Width="889" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}" SelectedCellsChanged="DgvProgram_SelectedCellsChanged"  >
             <DataGrid.Effect>
                 <DropShadowEffect/>
             </DataGrid.Effect>
@@ -140,12 +140,12 @@
             </DataGrid.ContextMenu>
 
         </DataGrid>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="886,57,0,0" TextWrapping="Wrap" Text="نام برنامه یا دوره:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Height="23" Width="104">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="783,57,0,0" TextWrapping="Wrap" Text="نام برنامه یا دوره:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Height="23" Width="104">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBox HorizontalAlignment="Left" x:Name="TxtTitle" Height="27" TabIndex="0" Margin="554,53,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
+        <TextBox HorizontalAlignment="Left" x:Name="TxtTitle" Height="27" TabIndex="0" Margin="450,53,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -156,12 +156,12 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="886,97,0,0" TextWrapping="Wrap" Text="نوع فایل:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Height="23" Width="51">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="778,97,0,0" TextWrapping="Wrap" Text="نوع فایل:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Height="23" Width="51">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBox HorizontalAlignment="Left" IsReadOnly="True" x:Name="TxtFilename" Height="27" TabIndex="0" Margin="554,93,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
+        <TextBox HorizontalAlignment="Left" IsReadOnly="True" x:Name="TxtFilename" Height="27" TabIndex="0" Margin="450,93,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="328" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>

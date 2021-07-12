@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gym.Windows"
         mc:Ignorable="d"
-        Title="WinAddGym" Height="600" AllowsTransparency="True" Width="1000" FontFamily="a hamase" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded">
+        Title="WinAddGym" Height="600" AllowsTransparency="True" Width="900" FontFamily="a hamase" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="Window_Loaded">
     <Grid>
-        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="600"  RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="1000" MouseDown="Rectangle_MouseDown">
+        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="600"  RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="900" MouseDown="Rectangle_MouseDown">
             <Rectangle.Stroke>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFFFA700" Offset="0"/>
@@ -15,12 +15,12 @@
                 </LinearGradientBrush>
             </Rectangle.Stroke>
         </Rectangle>
-        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="967,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown"  >
+        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="867,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown"  >
             <Image.Effect>
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <TextBox HorizontalAlignment="Left" x:Name="TxtName" Height="27" TabIndex="0" Margin="89,63,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="TxtName_PreviewTextInput_1">
+        <TextBox HorizontalAlignment="Left" x:Name="TxtName" Height="27" TabIndex="0" Margin="36,63,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="TxtName_PreviewTextInput_1">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -31,68 +31,68 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,67,0,0" TextWrapping="Wrap" Text="نام باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,67,0,0" TextWrapping="Wrap" Text="نام باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="336,494,0,0" TextWrapping="Wrap" Text="لوگو باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="88">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="235,470,0,0" TextWrapping="Wrap" Text="لوگو باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="88">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <Image x:Name="imglogo" HorizontalAlignment="Left" Height="136" Cursor="Hand" Margin="187,430,0,0" VerticalAlignment="Top" Width="144" Source="/Gym;component/Resources/Documents.png" Opacity="0.9" MouseDown="imglogo_MouseDown"/>
-        <Button Content="ثبت مشخصات" x:Name="Btninsert" IsDefault="True" HorizontalAlignment="Left" TabIndex="14" FontFamily="a hamase" Margin="47,539,0,0" VerticalAlignment="Top" Width="135" Height="27" Foreground="#FFFFF600" Background="#FF021D00" BorderBrush="#FF00FF5E" Click="Btninsert_Click" >
+        <Image x:Name="imglogo" HorizontalAlignment="Left" Height="136" Cursor="Hand" Margin="86,408,0,0" VerticalAlignment="Top" Width="144" Source="/Gym;component/Resources/Documents.png" Opacity="0.9" MouseDown="imglogo_MouseDown"/>
+        <Button Content="ثبت مشخصات" x:Name="Btninsert" IsDefault="True" HorizontalAlignment="Left" TabIndex="14" FontFamily="a hamase" Margin="36,549,0,0" VerticalAlignment="Top" Width="833" Height="27" Foreground="#FFFFF600" Background="#FF021D00" BorderBrush="#FF00FF5E" Click="Btninsert_Click" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,99,0,0" TextWrapping="Wrap" Text="نام مدیریت:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,99,0,0" TextWrapping="Wrap" Text="نام مدیریت:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,131,0,0" TextWrapping="Wrap" Text=" آدرس باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,131,0,0" TextWrapping="Wrap" Text=" آدرس باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,163,0,0" TextWrapping="Wrap" Text="تلفن باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,163,0,0" TextWrapping="Wrap" Text="تلفن باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,195,0,0" TextWrapping="Wrap" Text="اینستاگرام باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,195,0,0" TextWrapping="Wrap" Text="اینستاگرام باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,227,0,0" TextWrapping="Wrap" Text="تلگرام باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,227,0,0" TextWrapping="Wrap" Text="تلگرام باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,259,0,0" TextWrapping="Wrap" Text="واتس آپ باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,259,0,0" TextWrapping="Wrap" Text="واتس آپ باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,291,0,0" TextWrapping="Wrap" Text="روز های کاری باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,291,0,0" TextWrapping="Wrap" Text="روز های کاری باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,323,0,0" TextWrapping="Wrap" Text="تعطیلی باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,323,0,0" TextWrapping="Wrap" Text="تعطیلی باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,355,0,0" TextWrapping="Wrap" Text="وبسایت باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,355,0,0" TextWrapping="Wrap" Text="وبسایت باشگاه:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBox HorizontalAlignment="Left" x:Name="Txtmanager" Height="27" TabIndex="1" Margin="89,95,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtmanager_PreviewTextInput"   >
+        <TextBox HorizontalAlignment="Left" x:Name="Txtmanager" Height="27" TabIndex="1" Margin="36,95,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtmanager_PreviewTextInput"   >
             <TextBox.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="White" Offset="0.001"/>
@@ -103,7 +103,7 @@
                 <DropShadowEffect/>
             </TextBox.Effect>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="TxtAddress" Height="27" TabIndex="2" Margin="89,127,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" >
+        <TextBox HorizontalAlignment="Left" x:Name="TxtAddress" Height="27" TabIndex="2" Margin="36,127,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -114,7 +114,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="Txttel" Height="27"  TabIndex="3" Margin="89,159,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txttel_PreviewTextInput"   >
+        <TextBox HorizontalAlignment="Left" x:Name="Txttel" Height="27"  TabIndex="3" Margin="36,159,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txttel_PreviewTextInput"   >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -125,7 +125,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="TxtInsta" Height="27" TabIndex="4" Margin="89,191,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" >
+        <TextBox HorizontalAlignment="Left" x:Name="TxtInsta" Height="27" TabIndex="4" Margin="36,191,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -136,7 +136,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="Txttelegram" Height="27" TabIndex="5" Margin="89,223,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
+        <TextBox HorizontalAlignment="Left" x:Name="Txttelegram" Height="27" TabIndex="5" Margin="36,223,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -147,7 +147,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="Txtwhatsup" Height="27" TabIndex="6" Margin="89,255,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold"   >
+        <TextBox HorizontalAlignment="Left" x:Name="Txtwhatsup" Height="27" TabIndex="6" Margin="36,255,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold"   >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -158,7 +158,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="Txtwork" Height="27" TabIndex="7" Margin="89,287,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtwork_PreviewTextInput" >
+        <TextBox HorizontalAlignment="Left" x:Name="Txtwork" Height="27" TabIndex="7" Margin="36,287,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtwork_PreviewTextInput" >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -169,7 +169,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="Txtweekend" Height="27" TabIndex="8" Margin="89,319,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtweekend_PreviewTextInput" >
+        <TextBox HorizontalAlignment="Left" x:Name="Txtweekend" Height="27" TabIndex="8" Margin="36,319,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtweekend_PreviewTextInput" >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -180,7 +180,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="Txtwebsite" Height="27" TabIndex="9" Margin="89,351,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtwebsite_PreviewTextInput"   >
+        <TextBox HorizontalAlignment="Left" x:Name="Txtwebsite" Height="27" TabIndex="9" Margin="36,351,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="678" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtwebsite_PreviewTextInput"   >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -191,22 +191,22 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,462,0,0" TextWrapping="Wrap" Text="نام کاربری پنل SMS:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,438,0,0" TextWrapping="Wrap" Text="نام کاربری پنل SMS:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,494,0,0" TextWrapping="Wrap" Text="رمز عبور پنل SMS:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,470,0,0" TextWrapping="Wrap" Text="رمز عبور پنل SMS:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="772,526,0,0" TextWrapping="Wrap" Text="شماره فرستنده SMS:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="719,502,0,0" TextWrapping="Wrap" Text="شماره فرستنده SMS:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="150">
             <TextBlock.Effect>
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <TextBox HorizontalAlignment="Left" x:Name="Txtusernamesms" Height="27" TabIndex="10" Margin="469,458,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="298" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtusernamesms_PreviewTextInput" >
+        <TextBox HorizontalAlignment="Left" x:Name="Txtusernamesms" Height="27" TabIndex="10" Margin="416,434,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="298" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtusernamesms_PreviewTextInput" >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -217,7 +217,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" x:Name="Txtsender" Height="27" TabIndex="12" Margin="469,522,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="298" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtsender_PreviewTextInput"   >
+        <TextBox HorizontalAlignment="Left" x:Name="Txtsender" Height="27" TabIndex="12" Margin="416,498,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="298" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="Txtsender_PreviewTextInput"   >
             <TextBox.Effect>
                 <DropShadowEffect/>
             </TextBox.Effect>
@@ -228,7 +228,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <PasswordBox HorizontalAlignment="Left" x:Name="TxtPasswordsms" TabIndex="11" Margin="469,490,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="298" Height="27" HorizontalContentAlignment="Center" BorderBrush="Yellow" Foreground="Black" PreviewTextInput="TxtPasswordsms_PreviewTextInput" >
+        <PasswordBox HorizontalAlignment="Left" x:Name="TxtPasswordsms" TabIndex="11" Margin="416,466,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="298" Height="27" HorizontalContentAlignment="Center" BorderBrush="Yellow" Foreground="Black" PreviewTextInput="TxtPasswordsms_PreviewTextInput" >
             <PasswordBox.Effect>
                 <DropShadowEffect/>
             </PasswordBox.Effect>
