@@ -57,6 +57,7 @@ namespace Gym.Windows
                         if (people.ShahriehOUT == DateTime.Now.date())
                         {
                             sms.SendMessage(people.PeopleMobile, "ورزشکار گرامی ، تاریخ یک ماهه ی شهریه ی شما تمام شده است. لطفا جهت تمدید شهریه به باشگاه مراجعه کنید... با تشکر");
+                            MessageBox.Show($"تاریخ شهریه ی {people.PeopleName} به پایان رسیده است");
                         }
                     }
                 }

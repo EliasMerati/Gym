@@ -1,0 +1,87 @@
+﻿<Window x:Class="Gym.Windows.WinGymServices"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gym.Windows"
+        mc:Ignorable="d"
+        Title="WinGymServices" Height="400" FontFamily="a hamase" AllowsTransparency="True" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent">
+    <Grid>
+        <Rectangle Fill="#D8000000" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" RadiusY="15" RadiusX="15" Width="600" MouseDown="Rectangle_MouseDown">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFA700" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+
+        <Image HorizontalAlignment="Left" Height="19" Cursor="Hand" Margin="567,10,0,0" Source="/Gym;component/Resources/223.png" VerticalAlignment="Top" Width="23" RenderTransformOrigin="0.514,0.521" MouseDown="Image_MouseDown" OpacityMask="Black">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <TextBox HorizontalAlignment="Left" x:Name="TxtService" Height="100" TabIndex="0" Margin="47,112,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="433" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="TxtService_PreviewTextInput"  >
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </RadialGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="454,116,0,0" TextWrapping="Wrap" Text="شرح خدمات:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="120">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="483,245,0,0" TextWrapping="Wrap" Text="قیمت:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="43">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBox HorizontalAlignment="Left" x:Name="TxtServicePrice" Height="27" TabIndex="6" Margin="113,243,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="365" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" PreviewTextInput="TxtServicePrice_PreviewTextInput" >
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.001"/>
+                    <GradientStop Color="#FFFFC1C1" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="68,245,0,0" TextWrapping="Wrap" Text="تومان" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="40">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Button Content="ثبت مشخصات" x:Name="Btninsert" HorizontalAlignment="Left" TabIndex="7" FontFamily="a hamase" Margin="47,346,0,0" VerticalAlignment="Top" Width="433" Height="27" Foreground="#FFFFF600" Background="#FF021D00" BorderBrush="#FF00FF5E" Click="Btninsert_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="412,39,0,0" TextWrapping="Wrap" Text="ثبت خدمات برای:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" x:Name="lblname" FlowDirection="RightToLeft" Margin="96,37,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Height="29" Width="311" Foreground="#FF0AEAB2" FontFamily="A Hamase" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="423,295,0,0" TextWrapping="Wrap" Text="در تاریخ و ساعت:" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Label Content="..." x:Name="LblDate" FontFamily="A Hamase" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  HorizontalAlignment="Left" Margin="113,283,0,0" VerticalAlignment="Top" Width="265" FontSize="20" FontWeight="Bold" Background="Transparent" >
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Red" Offset="1"/>
+                    <GradientStop Color="#FFFFF100"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+
+    </Grid>
+</Window>

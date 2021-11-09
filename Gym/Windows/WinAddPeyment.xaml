@@ -53,6 +53,7 @@
             <ComboBoxItem Content="شهریه ی ماهیانه باشگاه" />
             <ComboBoxItem Content="شهریه ی روزانه باشگاه" />
             <ComboBoxItem Content="هزینه ی برنامه تمرینی" />
+            <ComboBoxItem Content="سرویس ها" />
             <ComboBoxItem Content="هزینه ی دوره" />
             <ComboBoxItem Content="بدهی از قبل بابت برنامه" />
             <ComboBoxItem Content="بدهی از قبل بابت دوره" />

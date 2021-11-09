@@ -245,6 +245,7 @@
                     <MenuItem Header="شخص جدید"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="people_click"/>
                     <MenuItem Header=" ویرایش"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="edit_click"/>
                     <MenuItem Header=" حذف"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="delete_click"/>
+                    <MenuItem Header=" ثبت خدمات"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="Service_click"/>
                     <MenuItem Header="برنامه ی جدید"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="newprogram_click"/>
                     <MenuItem Header="دوره ی جدید"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="newperiod_click"/>
                     <MenuItem Header="نمایش وضعیت کلی"  FontFamily="a hamase" FontSize="12" Foreground="Black" Click="log_click"/>

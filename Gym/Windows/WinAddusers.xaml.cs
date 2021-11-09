@@ -26,6 +26,7 @@ namespace Gym.Windows
         public int peopleID = 0;
         public string strname { get; set; }
         public string imagename { get; set; }
+        public BitmapImage img { get; set; }
 
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -60,29 +61,37 @@ namespace Gym.Windows
         {
             try
             {
-                ///////////////////گرفتن عکس از هارد کامپیوتر و آماده سازی برای ذخیره
-                FileDialog fldlg = new OpenFileDialog();
-                fldlg.Filter = " Image File (*.jpg;*.bmp;*.gif;*.jpeg)|*.jpg;*.bmp;*.gif;*.jpeg";
-                fldlg.ShowDialog();
-                if (new FileInfo(fldlg.FileName).Length <= 100000) ///////////// محدودیت حجم عکس انتخابی
+                if (img == null)
                 {
+                    ///////////////////گرفتن عکس از هارد کامپیوتر و آماده سازی برای ذخیره
+                    FileDialog fldlg = new OpenFileDialog();
+                    fldlg.Filter = " Image File (*.jpg;*.bmp;*.gif;*.jpeg)|*.jpg;*.bmp;*.gif;*.jpeg";
+                    fldlg.ShowDialog();
+                    if (new FileInfo(fldlg.FileName).Length <= 100000) ///////////// محدودیت حجم عکس انتخابی
                     {
-                        strname = fldlg.SafeFileName;
-                        imagename = fldlg.FileName;
-                        if (imagename != null)
                         {
-                            ImageSourceConverter isc = new ImageSourceConverter();
-                            imgperson.SetValue(Image.SourceProperty, isc.ConvertFromString(imagename));
-                        }
+                            strname = fldlg.SafeFileName;
+                            imagename = fldlg.FileName;
+                            if (imagename != null)
+                            {
+                                ImageSourceConverter isc = new ImageSourceConverter();
+                                imgperson.SetValue(Image.SourceProperty, isc.ConvertFromString(imagename));
+                            }
 
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("حجم عکس شما از 100 کیلوبایت بیشتر است");
+                    }
+
+                    fldlg = null;
                 }
                 else
                 {
-                    MessageBox.Show("حجم عکس شما از 100 کیلوبایت بیشتر است");
+                    imgperson.Source = img;
                 }
-
-                fldlg = null;
+        
             }
             catch
             {
@@ -222,5 +231,10 @@ namespace Gym.Windows
         }
 
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
+
+        private void BtnWebcam_Click(object sender, RoutedEventArgs e)
+        {
+            new WinWebCam().ShowDialog();
+        }
     }
 }

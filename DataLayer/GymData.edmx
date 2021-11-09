@@ -326,11 +326,7 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           <Parameter Name="date" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="findProgramID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="GetSmsValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="username" Type="nvarchar" Mode="InOut" />
-          <Parameter Name="password" Type="nvarchar" Mode="InOut" />
-          <Parameter Name="sender" Type="nvarchar" Mode="InOut" />
-        </Function>
+        <Function Name="GetSmsValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="InsertGym1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="name" Type="nvarchar" Mode="In" />
           <Parameter Name="manager" Type="nvarchar" Mode="In" />
@@ -994,10 +990,7 @@ warning 6002: The table/view 'Gym_DB.dbo.vw_shahrieh' does not have a primary ke
           </FunctionImport>
           <FunctionImport Name="findProgramID" ReturnType="Collection(Gym_DBModel.findProgramID_Result)" />
           <FunctionImport Name="GetSmsValue">
-            <Parameter Name="username" Mode="InOut" Type="String" />
-            <Parameter Name="password" Mode="InOut" Type="String" />
-            <Parameter Name="sender" Mode="InOut" Type="String" />
-          </FunctionImport>
+            </FunctionImport>
           <FunctionImport Name="InsertGym1">
             <Parameter Name="name" Mode="In" Type="String" />
             <Parameter Name="manager" Mode="In" Type="String" />

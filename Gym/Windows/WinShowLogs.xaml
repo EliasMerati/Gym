@@ -21,7 +21,7 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <DataGrid x:Name="DgvLogs"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="439" Margin="7,120,0,0" VerticalAlignment="Top" Width="890" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}">
+        <DataGrid x:Name="DgvLogs"  HorizontalAlignment="Left" AutoGenerateColumns="False" FlowDirection="RightToLeft" Height="401" Margin="7,120,0,0" VerticalAlignment="Top" Width="890" HorizontalGridLinesBrush="#FF854B4B" VerticalGridLinesBrush="White" Background="{x:Null}" BorderBrush="{x:Null}">
             <DataGrid.Effect>
                 <DropShadowEffect/>
             </DataGrid.Effect>
@@ -185,12 +185,12 @@
             </TextBlock.Effect>
         </TextBlock>
         <Label Content="0" Name="lbldeptor" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="536,559,0,0" VerticalAlignment="Top" Width="299" Foreground="#FFE53B08" FontFamily="A Hamase" FontSize="20" Height="38"/>
-        <Button Content="ثبت مبالغ" x:Name="Btnpey" HorizontalAlignment="Left" FontFamily="a hamase" Margin="10,566,0,0" VerticalAlignment="Top" Width="144" Height="27" Foreground="White" Background="#FF240000" BorderBrush="#FFFF006F" Click="Btnpey_Click" >
+        <Button Content="ثبت مبالغ" x:Name="Btnpey" HorizontalAlignment="Left" FontFamily="a hamase" Margin="10,566,0,0" VerticalAlignment="Top" Width="220" Height="27" Foreground="White" Background="#FF240000" BorderBrush="#FFFF006F" Click="Btnpey_Click" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Button Content=" نمایش تراکنش ها" x:Name="BtnShowpayment" HorizontalAlignment="Left" FontFamily="a hamase" Margin="159,566,0,0" VerticalAlignment="Top" Width="131" Height="28" Foreground="White" Background="Black" BorderBrush="#FFFFF100" Click="BtnShowpayment_Click" >
+        <Button Content=" نمایش تراکنش ها" x:Name="BtnShowpayment" HorizontalAlignment="Left" FontFamily="a hamase" Margin="235,565,0,0" VerticalAlignment="Top" Width="246" Height="28" Foreground="White" Background="Black" BorderBrush="#FFFFF100" Click="BtnShowpayment_Click" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -211,7 +211,7 @@
                 </RadialGradientBrush>
             </TextBox.Background>
         </TextBox>
-        <Button Content=" ورود تاریخ شهریه جدید" x:Name="BtnShahrieh" HorizontalAlignment="Left" FontFamily="a hamase" Margin="295,566,0,0" VerticalAlignment="Top" Width="191" Height="28" Foreground="White" Background="Black" BorderBrush="#FF00FF41" Click="BtnShahrieh_Click"  >
+        <Button Content=" ورود تاریخ شهریه جدید" x:Name="BtnShahrieh" HorizontalAlignment="Left" FontFamily="a hamase" Margin="10,533,0,0" VerticalAlignment="Top" Width="220" Height="28" Foreground="White" Background="Black" BorderBrush="#FF00FF41" Click="BtnShahrieh_Click"  >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -222,6 +222,22 @@
             </Button.Effect>
         </Button>
         <Label Content="..." Name="lblName" HorizontalAlignment="Left" Margin="291,8,0,0" FlowDirection="RightToLeft" VerticalAlignment="Top" Width="311" Height="28" Foreground="#FFFFD400" FontFamily="A Hamase" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="775,536,0,-5" TextWrapping="Wrap" Text="بدهی بابت خدمات :" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="120">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" FontFamily="a hamase" Margin="486,536,0,0" TextWrapping="Wrap" Text="تومان" FlowDirection="RightToLeft" VerticalAlignment="Top" Foreground="#FFF1ECC5" FontSize="14" Width="45">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <Label Content="0" x:Name="lbldeptor_Copy" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="536,526,0,0" VerticalAlignment="Top" Width="234" Foreground="#FFE53B08" FontFamily="A Hamase" FontSize="20" Height="38"/>
+        <Button Content=" نمایش سرویس ها" x:Name="BtnShowService" HorizontalAlignment="Left" FontFamily="a hamase" Margin="235,534,0,0" VerticalAlignment="Top" Width="246" Height="28" Foreground="White" BorderBrush="#FFFF00F9" Click="BtnShowServices_Click" Background="Black" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
 
     </Grid>
 </Window>

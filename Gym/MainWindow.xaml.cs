@@ -124,5 +124,10 @@ namespace Gym
         private void Ma_click(object sender, RadRoutedEventArgs e) => new Us().Show();
 
         private void Calc_Click(object sender, RoutedEventArgs e) => System.Diagnostics.Process.Start("calc.exe");
+
+        private void Webcam_Click(object sender, RoutedEventArgs e)
+        {
+            new WinWebCam().ShowDialog();
+        }
     }
 }

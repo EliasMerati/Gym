@@ -139,7 +139,7 @@
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
-        <Button Content="ثبت مشخصات" x:Name="Btninsert" HorizontalAlignment="Left" TabIndex="7" FontFamily="a hamase" Margin="46,358,0,0" VerticalAlignment="Top" Width="135" Height="27" Foreground="#FFFFF600" Background="#FF021D00" BorderBrush="#FF00FF5E" Click="Btninsert_Click" >
+        <Button Content="ثبت مشخصات" x:Name="Btninsert" HorizontalAlignment="Left" TabIndex="7" FontFamily="a hamase" Margin="46,358,0,0" VerticalAlignment="Top" Width="110" Height="27" Foreground="#FFFFF600" Background="#FF021D00" BorderBrush="#FF00FF5E" Click="Btninsert_Click" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -158,6 +158,11 @@
                 <DropShadowEffect/>
             </TextBlock.Effect>
         </TextBlock>
+        <Button Content="ثبت عکس از طریق وب کم" x:Name="BtnWebcam" HorizontalAlignment="Left" TabIndex="7" FontFamily="a hamase" Margin="161,358,0,0" VerticalAlignment="Top" Width="163" Height="27" Foreground="#FFFFF600" Background="#FF021D00" BorderBrush="Red" Click="BtnWebcam_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
 
     </Grid>
 </Window>

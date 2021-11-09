@@ -30,19 +30,17 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <RichTextBox HorizontalAlignment="Left"   x:Name="TxtSmsText" Height="213" Margin="26,77,0,0" VerticalContentAlignment="Top" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="472" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold">
-            <RichTextBox.Background>
+        <TextBox HorizontalAlignment="Left" x:Name="TxtSmsText" Height="224" TabIndex="0" Margin="26,72,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="472" BorderBrush="Yellow" SelectionBrush="White" Foreground="Black" FontSize="14" FontWeight="Bold" >
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+            <TextBox.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="White"/>
+                    <GradientStop Color="White" Offset="0.001"/>
                     <GradientStop Color="#FFFFC1C1" Offset="1"/>
                 </RadialGradientBrush>
-            </RichTextBox.Background>
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text=""/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
+            </TextBox.Background>
+        </TextBox>
 
     </Grid>
 </Window>

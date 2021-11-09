@@ -334,5 +334,9 @@ namespace Gym.Windows
             }
         }
 
+        private void Service_click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

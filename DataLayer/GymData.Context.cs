@@ -98,9 +98,9 @@ namespace DataLayer
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<findProgramID_Result>("findProgramID");
         }
     
-        public virtual int GetSmsValue(ObjectParameter username, ObjectParameter password, ObjectParameter sender)
+        public virtual int GetSmsValue()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetSmsValue", username, password, sender);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetSmsValue");
         }
     
         public virtual int InsertGym1(string name, string manager, string address, string tel, string website, string insta, string telegram, string whatsup, string workhour, string smsusername, string pass, string sender, string weekend, byte[] logo)

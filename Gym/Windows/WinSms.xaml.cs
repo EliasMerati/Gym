@@ -26,10 +26,10 @@ namespace Gym.Windows
             {
                 SmsSender sms = new SmsSender();
                 var people = db.People.ToList();
-                string text = TxtSmsText.ToString();
-                foreach (var person in people)
+                string text = TxtSmsText.Text.Trim();
+                for (int i =0; i<people.Count();i++)
                 {
-                    sms.SendMessage(person.PeopleMobile,text);
+                    sms.SendMessage(people[i].PeopleMobile,text);
                 }
             }
         }

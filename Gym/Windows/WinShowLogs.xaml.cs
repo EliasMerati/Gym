@@ -133,6 +133,7 @@ namespace Gym.Windows
         private void BtnShahrieh_Click(object sender, RoutedEventArgs e)
         {
             db.insertshahriehdate(ID, DateTime.Now.date(), DateTime.Now.date2());
+            db.SaveChanges();
             MessageBox.Show("تاریخ شهریه جدید ثبت شد");
         }
 
@@ -145,5 +146,13 @@ namespace Gym.Windows
         }
 
         private void lblname_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
+
+        private void BtnShowServices_Click(object sender, RoutedEventArgs e)
+        {
+            WinShowService showService = new WinShowService();
+            showService.Id = ID;
+            showService.Name = Name;
+            showService.ShowDialog();
+        }
     }
 }
